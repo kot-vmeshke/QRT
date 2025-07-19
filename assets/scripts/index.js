@@ -40,4 +40,26 @@ const handleBurgerMenu = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   handleBurgerMenu();
+
+  const heroSlider = document.querySelector('.hero');
+
+  const swiper = new Swiper(heroSlider, {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    loop: true,
+
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
+
+    navigation: {
+      nextEl: '.hero-button--next',
+      prevEl: '.hero-button--prev',
+    },
+  });
+  swiper.on('slideChange', () => {
+    const isFirst = swiper.realIndex === 0;
+    heroSlider.classList.toggle('not-first-slide', !isFirst);
+  });
 });

@@ -5,13 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QRT</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./assets/styles/index.css">
 </head>
 
 <body>
+  <!-- header -->
   <header class="header">
     <div class="container header-container">
       <a href="" class="header-logo">
+        <h1>QRT Power</h1>
         <img src="./assets/img/qrt_logo.svg" alt="Logo of QRT Power" width="157" height="54">
       </a>
       <div class="header-nav-wrapper">
@@ -68,23 +71,155 @@
       </div>
     </div>
   </header>
+
+  <!-- main -->
   <main>
-    <section id="hero">Hero</section>
+    <!-- hero -->
+    <section id="hero" class="hero swiper">
+      <div class="swiper-wrapper">
+        <div class="hero-slide hero-slide--main swiper-slide">
+          <img src="./assets/img/slides/main-slide.png" alt="" class="hero-slide-image">
+          <div class="hero-slide-text-wrap">
+            <img src="./assets/img/Energising_Your_Future.png" alt="" width="1440" height="340">
+            <h2 class="hero-title"><span>ENERGIZING</span> YOUR FUTURE</h2>
+            <p class="hero-description">From concept to commissioning —
+              <br>built for mission-critical environments.
+            </p>
+          </div>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <img src="./assets/img/slides/UAV_TECHNOLOGY_BLOCK.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>UAV</span> TECHNOLOGY</h2>
+          <p class="hero-description">Tactical drones. Total insight.</p>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <img src="./assets/img/slides/TURNKEY ENGINEERING PHOTO.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>TURNKEY</span> ENGINEERING</h2>
+          <p class="hero-description">You get infrastructure. We handle everything else.</p>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <img src="./assets/img/slides/ENERGY SOLUTIONS PHOTO.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>ENERGY</span> SOLUTIONS</h2>
+          <p class="hero-description">Military minds. Prime Systems.</p>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <img src="./assets/img/slides/DEFENCE SYSTEMS PHOTO.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>DEFENCE</span> SOLUTIONS</h2>
+          <p class="hero-description">Military minds. Prime Systems.</p>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-slide swiper-slide" class="hero-slide-image">
+          <img src="./assets/img/slides/LICENCE & COMPLIANCE PHOTO.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>LICENCE</span> & COMPLIANCE</h2>
+          <p class="hero-description">Military minds. Prime Systems.</p>
+          <div class="hero-slide-bottom">
+            <img src="./assets/img/LOGO1.png" alt="" width="121" height="56">
+            <a href="#" class="button">Learn more
+              <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                  fill="currentColor" />
+              </svg>
+            </a>
+            <img src="./assets/img/LOGO2.png" alt="" width="121" height="56">
+          </div>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <img src="./assets/img/slides/OPERATIONAL VALIDATION PHOTO.png" alt="" class="hero-slide-image">
+          <h2 class="hero-title"><span>OPERATIONAL</span> VALIDATION</h2>
+          <p class="hero-description">Performance you can trust.</p>
+          <a href="#" class="button">Learn more
+            <svg width="29" height="35" viewBox="0 0 29 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 11.2259L11.3385 10L18.6292 16.6812C18.7467 16.7882 18.8399 16.9155 18.9036 17.0558C18.9672 17.196 19 17.3464 19 17.4983C19 17.6501 18.9672 17.8005 18.9036 17.9408C18.8399 18.081 18.7467 18.2083 18.6292 18.3153L11.3385 25L10.0013 23.7741L16.844 17.5L10 11.2259Z"
+                fill="currentColor" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <button class="hero-button hero-button--prev">
+        <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 1.71627L10.2153 0L0.494453 9.35366C0.337758 9.50354 0.213403 9.68177 0.128545 9.87809C0.0436863 10.0744 0 10.2849 0 10.4976C0 10.7102 0.0436863 10.9207 0.128545 11.1171C0.213403 11.3134 0.337758 11.4916 0.494453 11.6415L10.2153 21L11.9983 19.2837L2.87462 10.5L12 1.71627Z"
+            fill="white" />
+        </svg>
+
+      </button>
+      <button class="hero-button hero-button--next">
+        <svg width="12" height="21" viewBox="0 0 12 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 1.71627L10.2153 0L0.494453 9.35366C0.337758 9.50354 0.213403 9.68177 0.128545 9.87809C0.0436863 10.0744 0 10.2849 0 10.4976C0 10.7102 0.0436863 10.9207 0.128545 11.1171C0.213403 11.3134 0.337758 11.4916 0.494453 11.6415L10.2153 21L11.9983 19.2837L2.87462 10.5L12 1.71627Z"
+            fill="white" />
+        </svg>
+
+      </button>
+    </section>
+
+    <!-- pricision -->
     <section id="pricision">PRECISION & POWER</section>
+
+    <!-- serveces -->
     <section id="serveces">QRT Core Services</section>
+
+    <!-- operate -->
     <section id="operate">Where We Operate</section>
+
+    <!-- why-us -->
     <section id="why-us">Why Us</section>
+
+    <!-- projects -->
     <section id="projects">OUR PROjECTS</section>
+
+    <!-- clients -->
     <section id="clients">Trusted Worldwide</section>
+
+    <!-- contacts -->
     <section id="contacts">TALK TO US</section>
   </main>
+
+  <!-- footer -->
   <footer class="footer">
     <div class="container footer-container">
       <a href="#" class="footer-logo">
         <img src="./assets/img/qrt_logo.svg" alt="Logo of QRT Power" width="157" height="54">
       </a>
       <h2 class="footer-title">Built for field<br>
-        <span>resilience</span></h2>
+        <span>resilience</span>
+      </h2>
       <div class="footer-location-wrap">
         <a href="#" target="_blank">
           <span>UAE office</span>
@@ -167,6 +302,7 @@
       </p>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./assets/scripts/index.js"></script>
 </body>
 

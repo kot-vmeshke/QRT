@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+
+  &-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    row-gap: 22px;
+    width: 100%;
+    height: 100svh;
+    padding-bottom: 8.7vh;
+    overflow-x: hidden;
+
+    &-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &-bottom {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 44px;
+    }
+
+    &-text-wrap {
+      position: relative;
+      top: 50svh;
+      transform: translate(0, -39%);
+    }
+
+    &--main {
+      justify-content: flex-start;
+      padding-bottom: 11.3vh;
+      .button {
+        align-self: flex-start;
+        margin: auto 0 0 8.5vw;
+      }
+    }
+
+    .button {
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  &-title {
+    position: relative;
+    font-weight: 700;
+    font-size: 86px;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-primary-light);
+
+    .hero-slide--main & {
+      font-size: 0px;
+    }
+
+    span {
+      color: var(--color-accent);
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 55%;
+      transform: translate(0, -50%);
+      display: block;
+      width: 408px;
+      height: 20px;
+      background: url(../img/main-title-element.svg) no-repeat center / contain;
+
+      .hero-slide--main & {
+        display: none;
+      }
+    }
+
+    &::before {
+      right: calc(100% + 28px);
+    }
+    &::after {
+      left: calc(100% + 28px);
+      transform: translate(0, -50%) rotate(180deg);
+    }
+  }
+
+  &-description {
+    position: relative;
+    margin-bottom: 7px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 173%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+
+    .hero-slide--main & {
+      font-weight: 500;
+      font-size: 22px;
+      margin-top: -110px;
+    }
+  }
+
+  &-button {
+    position: absolute;
+    bottom: 11.3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    aspect-ratio: 1;
+    flex-shrink: 0;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 2;
+
+    &--next {
+      right: 8.5vw;
+      transform: rotate(180deg);
+    }
+    &--prev {
+      right: 10.5vw;
+
+      .not-first-slide & {
+        right: auto;
+        left: 8.5vw;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .not-first-slide & {
+      bottom: 8.7vh;
+    }
+  }
+}
