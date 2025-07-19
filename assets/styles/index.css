@@ -45,11 +45,8 @@
   --color-text: #c5c5c5;
   --color-accent: #f78d1e;
   --color-bg-dark: #282928;
-  --gradient-bg-light: linear-gradient(
-    128.58deg,
-    #e7e9e8 1.23%,
-    #9a9da2 128.79%
-  );
+  --gradient-bg-light: url(../img/noise.png),
+    linear-gradient(128.58deg, #e7e9e8 1.23%, #9a9da2 128.79%);
   --font-family: "Barlow", Arial, Helvetica, system-ui, sans-serif;
   --padding-inline: 8.5vw;
 }
@@ -104,6 +101,27 @@ button {
 }
 .section-title span {
   color: var(--color-accent);
+}
+
+.title-dots::before, .title-dots::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  transform: translate(0, -50%);
+  display: block;
+  width: 303px;
+  height: 6px;
+  background: url(../img/section-title-element.svg) no-repeat center/contain;
+}
+.hero-slide--main .title-dots::before, .hero-slide--main .title-dots::after {
+  display: none;
+}
+.title-dots::before {
+  right: calc(100% + 24px);
+}
+.title-dots::after {
+  left: calc(100% + 24px);
+  transform: translate(0, -50%) rotate(180deg);
 }
 
 .button {
@@ -469,4 +487,36 @@ button {
 }
 .not-first-slide .hero-button {
   bottom: 8.7vh;
+}
+
+.precision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 38px;
+  padding: 54px 0 530px;
+  background: url(../img/precision_logo.svg) no-repeat center bottom, var(--gradient-bg-light);
+}
+.precision-text {
+  max-width: 926px;
+  margin: 0 var(--padding-inline);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 173%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: var(--color-primary-dark);
+}
+.precision-text p {
+  margin: 0 auto;
+}
+.precision-text p:first-child {
+  max-width: 720px;
+}
+.precision-text p:nth-child(3) {
+  max-width: 640px;
+}
+.precision-text p:not(:last-child) {
+  margin-bottom: 28px;
 }/*# sourceMappingURL=index.css.map */
