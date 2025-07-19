@@ -17,7 +17,7 @@
   );
   --font-family: 'Barlow', Arial, Helvetica, system-ui, sans-serif;
 
-  --padding-inline: 8vw;
+  --padding-inline: 8.5vw;
 }
 
 html,
@@ -26,14 +26,25 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
   font-family: var(--font-family);
   color: var(--color-text);
   background: var(--color-bg-dark);
 }
-
+main {
+  margin-bottom: auto;
+}
 a,
 a:is(:hover, :focus) {
   text-decoration: none;
+}
+button {
+  border: none;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
 }
 
 .container {
@@ -75,8 +86,6 @@ a:is(:hover, :focus) {
   text-transform: uppercase;
   text-align: center;
   color: var(--color-primary-light);
-  background: transparent;
-  cursor: pointer;
   transition: all 0.3s;
 
   &:hover {

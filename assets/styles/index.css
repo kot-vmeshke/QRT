@@ -51,7 +51,7 @@
     #9a9da2 128.79%
   );
   --font-family: "Barlow", Arial, Helvetica, system-ui, sans-serif;
-  --padding-inline: 8vw;
+  --padding-inline: 8.5vw;
 }
 
 html,
@@ -60,14 +60,28 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
   font-family: var(--font-family);
   color: var(--color-text);
   background: var(--color-bg-dark);
 }
 
+main {
+  margin-bottom: auto;
+}
+
 a,
 a:is(:hover, :focus) {
   text-decoration: none;
+}
+
+button {
+  border: none;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
 }
 
 .container {
@@ -107,8 +121,6 @@ a:is(:hover, :focus) {
   text-transform: uppercase;
   text-align: center;
   color: var(--color-primary-light);
-  background: transparent;
-  cursor: pointer;
   transition: all 0.3s;
 }
 .button:hover {
@@ -118,4 +130,83 @@ a:is(:hover, :focus) {
 .button--on-accent:hover {
   border-color: var(--color-primary-dark);
   background-color: var(--color-primary-dark);
+}
+
+.header-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  padding: 41px var(--padding-inline);
+}
+.header-nav-wrapper {
+  position: relative;
+}
+.header-burger {
+  position: relative;
+  width: 32px;
+  height: 24px;
+  margin-top: 4px;
+}
+.header-burger:hover {
+  color: var(--color-primary-dark);
+}
+.header-burger svg {
+  display: block;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s, color 0.3s;
+}
+.header-burger .opened {
+  opacity: 0;
+}
+.js-opened .header-burger .opened {
+  opacity: 1;
+}
+.header-burger .closed {
+  opacity: 1;
+}
+.js-opened .header-burger .closed {
+  opacity: 0;
+}
+.header-nav {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+.js-opened .header-nav {
+  height: 170px;
+  opacity: 1;
+}
+.js-opened .header-nav .header-nav-list {
+  visibility: visible;
+}
+.header-nav-list {
+  visibility: hidden;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 12px;
+}
+.header-nav-link {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1em;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  transition: color 0.3s;
+}
+.header-nav-link:hover {
+  color: var(--color-primary-light);
 }/*# sourceMappingURL=index.css.map */
