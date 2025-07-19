@@ -92,6 +92,17 @@ button {
     left: calc(100% + 24px);
     transform: translate(0, -50%) rotate(180deg);
   }
+
+  &--light {
+    &::before {
+      right: calc(100% + 24px);
+      transform: rotate(180deg);
+    }
+    &::after {
+      left: calc(100% + 24px);
+      transform: translate(0, -50%);
+    }
+  }
 }
 
 .button {

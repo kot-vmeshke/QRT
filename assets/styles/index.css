@@ -123,6 +123,14 @@ button {
   left: calc(100% + 24px);
   transform: translate(0, -50%) rotate(180deg);
 }
+.title-dots--light::before {
+  right: calc(100% + 24px);
+  transform: rotate(180deg);
+}
+.title-dots--light::after {
+  left: calc(100% + 24px);
+  transform: translate(0, -50%);
+}
 
 .button {
   display: flex;
@@ -519,4 +527,107 @@ button {
 }
 .precision-text p:not(:last-child) {
   margin-bottom: 28px;
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 146px 0 249px;
+}
+.services-wrapper {
+  margin: 122px 0 132px;
+  list-style: none;
+}
+.services-text {
+  margin: 0 var(--padding-inline);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 176%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.service {
+  display: flex;
+  -moz-column-gap: 138px;
+       column-gap: 138px;
+  padding: 36px 0 36px var(--padding-inline);
+}
+.service--invert {
+  flex-direction: row-reverse;
+  -moz-column-gap: 96px;
+       column-gap: 96px;
+  padding: 36px var(--padding-inline) 36px 0;
+}
+.service-text-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 65px 0;
+  transition: transform 0.5s;
+}
+.service:hover .service-text-wrap {
+  transform: translate(-20px, -20px);
+}
+.service--invert:hover .service-text-wrap {
+  transform: translate(20px, -20px);
+}
+.service-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 97%;
+  text-transform: uppercase;
+  color: var(--color-primary-light);
+}
+.service-subtitle {
+  margin-bottom: 28px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 97%;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.service-text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 148%;
+}
+.service-text:not(:last-child) {
+  margin-bottom: 28px;
+}
+.service-image {
+  flex-shrink: 0;
+  position: relative;
+  width: 45vw;
+  aspect-ratio: 1.13;
+  border-radius: 120px 0 0 120px;
+  overflow: hidden;
+}
+.service--invert .service-image {
+  border-radius: 0 120px 120px 0;
+}
+.service-image::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  display: block;
+  width: 18px;
+  background: linear-gradient(180deg, #f78d1e 0%, rgba(247, 141, 30, 0) 100%);
+}
+.service--invert .service-image::after {
+  inset: 0 auto 0 0;
+}
+.service-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s;
+}
+.service:hover .service-image img {
+  transform: scale(1.05);
 }/*# sourceMappingURL=index.css.map */
