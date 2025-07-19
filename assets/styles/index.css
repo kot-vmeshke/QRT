@@ -244,12 +244,18 @@ button {
   line-height: 150%;
   letter-spacing: 0%;
   text-transform: lowercase;
-  color: var(--color-primary-light);
 }
-.footer-location-wrap span {
+.footer-location-wrap a {
+  color: var(--color-primary-light);
+  transition: color 0.3s;
+}
+.footer-location-wrap a span {
   display: block;
   font-weight: 600;
   text-transform: uppercase;
+  color: var(--color-accent);
+}
+.footer-location-wrap a:hover {
   color: var(--color-accent);
 }
 .footer-contacts {
@@ -281,6 +287,10 @@ button {
   line-height: normal;
   text-align: right;
   color: var(--color-primary-light);
+  transition: color 0.3s;
+}
+.footer-contacts-link:hover {
+  color: var(--color-accent);
 }
 .footer-contacts-link svg {
   display: block;
@@ -298,7 +308,14 @@ button {
   align-items: center;
   justify-content: flex-end;
   gap: 46px;
-  color: #999FA0;
+  color: #999fa0;
+}
+.footer-socials-link {
+  color: #999fa0;
+  transition: color 0.3s;
+}
+.footer-socials-link:hover {
+  color: var(--color-primary-light);
 }
 .footer-copyright {
   grid-area: copyright;

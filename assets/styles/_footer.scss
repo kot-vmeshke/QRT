@@ -42,13 +42,21 @@
     line-height: 150%;
     letter-spacing: 0%;
     text-transform: lowercase;
-    color: var(--color-primary-light);
 
-    span {
-      display: block;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--color-accent);
+    a {
+      color: var(--color-primary-light);
+      transition: color 0.3s;
+
+      span {
+        display: block;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--color-accent);
+      }
+      
+      &:hover {
+        color: var(--color-accent);
+      }
     }
   }
 
@@ -84,6 +92,12 @@
       text-align: right;
       color: var(--color-primary-light);
 
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-accent);
+      }
+
       svg {
         display: block;
         flex-shrink: 0;
@@ -104,7 +118,16 @@
       align-items: center;
       justify-content: flex-end;
       gap: 46px;
-      color: #999FA0;
+      color: #999fa0;
+    }
+
+    &-link {
+      color: #999fa0;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-primary-light);
+      }
     }
   }
 
