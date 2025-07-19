@@ -1,1 +1,122 @@
-.footer {}
+.footer {
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas:
+      'logo contacts'
+      'title contacts'
+      'location socials'
+      'copyright copyright';
+    row-gap: 30px;
+    padding: 111px var(--padding-inline) 44px;
+  }
+
+  &-logo {
+    grid-area: logo;
+  }
+
+  &-title {
+    grid-area: title;
+
+    margin: 4px 0 8px;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 106%;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+
+    span {
+      color: var(--color-accent);
+    }
+  }
+
+  &-location-wrap {
+    grid-area: location;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0%;
+    text-transform: lowercase;
+    color: var(--color-primary-light);
+
+    span {
+      display: block;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+  }
+
+  &-contacts {
+    grid-area: contacts;
+    justify-self: end;
+
+    &-title {
+      margin: 8px 0 30px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 100%;
+      text-transform: uppercase;
+      text-align: right;
+      color: var(--color-accent);
+    }
+
+    &-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: normal;
+      text-align: right;
+      color: var(--color-primary-light);
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  &-socials {
+    grid-area: socials;
+    justify-self: end;
+
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    &-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 46px;
+      color: #999FA0;
+    }
+  }
+
+  &-copyright {
+    grid-area: copyright;
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 317%;
+    letter-spacing: 1.17vw;
+    text-align: center;
+    color: var(--color-primary-light);
+    opacity: 0.34;
+  }
+}

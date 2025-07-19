@@ -39,6 +39,7 @@ main {
 a,
 a:is(:hover, :focus) {
   text-decoration: none;
+  color: inherit;
 }
 button {
   border: none;
