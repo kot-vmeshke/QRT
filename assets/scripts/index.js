@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const heroSlider = document.querySelector('.hero');
 
-  const swiper = new Swiper(heroSlider, {
+  const heroSwiper = new Swiper(heroSlider, {
     slidesPerView: 1,
     slidesPerGroup: 1,
     loop: true,
@@ -58,8 +58,32 @@ document.addEventListener('DOMContentLoaded', () => {
       prevEl: '.hero-button--prev',
     },
   });
-  swiper.on('slideChange', () => {
+  heroSwiper.on('slideChange', () => {
     const isFirst = swiper.realIndex === 0;
     heroSlider.classList.toggle('not-first-slide', !isFirst);
   });
+
+
+  const clientsSlider = document.querySelector('.clients-wrapper');
+  const clientsSwiper = new Swiper(clientsSlider, {
+    slidesPerView: 6,
+    spaceBetween: 113,
+    loop: true,
+    allowTouchMove: false,
+    speed: 7000,
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false,
+    },
+  });
+
+  clientsSwiper.autoplay.stop();
+  
+  clientsSlider.addEventListener('mouseenter', () =>
+    clientsSwiper.autoplay.start()
+  );
+  clientsSlider.addEventListener('mouseleave', () =>
+    clientsSwiper.autoplay.stop()
+  );
 });
