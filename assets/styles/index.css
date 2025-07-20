@@ -759,4 +759,25 @@ button {
 .feature-name span {
   display: block;
   color: var(--color-accent);
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 38px;
+  padding: 109px 0 71px;
+  background: var(--gradient-bg-light);
+}
+.projects-text {
+  max-width: 920px;
+  margin: 0 var(--padding-inline);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 176%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
 }/*# sourceMappingURL=index.css.map */
