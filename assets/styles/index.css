@@ -841,6 +841,16 @@ button {
   transform: translate(-50%, 0);
   width: 37.1vw;
   background: var(--color-primary-dark);
+  filter: grayscale(1);
+  transition: filter 0.4s;
+}
+.project-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 .project-img img {
   display: block;
@@ -848,6 +858,12 @@ button {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.project:hover .project-img {
+  filter: grayscale(0);
+}
+.project:hover .project-img::after {
+  opacity: 1;
 }
 .project-name {
   position: relative;
@@ -942,14 +958,14 @@ button {
 }
 .contacts-types {
   width: 100%;
-  max-width: 1028px;
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 123px;
   margin: 0 auto;
 }
-.contacts-types * {
+.contacts-types li {
   width: 100%;
+  max-width: 316px;
 }/*# sourceMappingURL=index.css.map */

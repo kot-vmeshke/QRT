@@ -11,16 +11,16 @@
 
   &-types {
     width: 100%;
-    max-width: 1028px;
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 123px;
     margin: 0 auto;
 
-    * {
+    li {
       width: 100%;
+      max-width: 316px;
     }
   }
 }
