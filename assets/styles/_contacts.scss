@@ -1,0 +1,26 @@
+.contacts {
+  padding: 152px 0 158px;
+  background: var(--color-accent);
+
+  .section-title {
+    margin-bottom: 100px;
+    span {
+      color: var(--color-primary-light);
+    }
+  }
+
+  &-types {
+    width: 100%;
+    max-width: 1028px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 123px;
+    margin: 0 auto;
+
+    * {
+      width: 100%;
+    }
+  }
+}

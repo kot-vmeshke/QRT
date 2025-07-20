@@ -47,6 +47,7 @@
     .button {
       position: relative;
       z-index: 3;
+      flex-shrink: 0;
     }
   }
 

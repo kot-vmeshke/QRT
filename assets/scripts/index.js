@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerGroup: 1,
     loop: true,
 
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
 
     navigation: {
       nextEl: '.hero-button--next',
@@ -59,10 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
   heroSwiper.on('slideChange', () => {
-    const isFirst = swiper.realIndex === 0;
+    const isFirst = heroSwiper.realIndex === 0;
     heroSlider.classList.toggle('not-first-slide', !isFirst);
   });
-
 
   const clientsSlider = document.querySelector('.clients-wrapper');
   const clientsSwiper = new Swiper(clientsSlider, {
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   clientsSwiper.autoplay.stop();
-  
+
   clientsSlider.addEventListener('mouseenter', () =>
     clientsSwiper.autoplay.start()
   );

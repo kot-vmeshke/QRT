@@ -7,9 +7,13 @@
   padding: 109px 0 71px;
   background: var(--gradient-bg-light);
 
+  .section-title {
+    margin-bottom: 104px;
+  }
+
   &-text {
     max-width: 920px;
-    margin: 0 var(--padding-inline);
+    margin: 74px var(--padding-inline) 0;
     font-weight: 500;
     font-size: 24px;
     line-height: 176%;
@@ -17,5 +21,117 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-dark);
+  }
+
+  &-wrapper {
+    width: 100%;
+    display: flex;
+    column-gap: 22px;
+  }
+}
+
+.project {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 11px;
+  width: 100%;
+  min-height: 534px;
+  padding: 32px 30px;
+  overflow: hidden;
+  transition: flex-basis 0.4s ease;
+
+  &:nth-child(1) {
+    flex-basis: 34.3vw;
+    border-radius: 0 4px 4px 0;
+
+    .projects-wrapper--even & {
+      flex-basis: 24.2vw;
+    }
+  }
+
+  &:nth-child(2) {
+    flex-basis: 37.1vw;
+    border-radius: 4px;
+  }
+
+  &:nth-child(3) {
+    flex-basis: 25.9vw;
+    border-radius: 4px 0 0 4px;
+
+    .projects-wrapper--even & {
+      flex-basis: 36vw;
+    }
+  }
+
+  .projects-wrapper--odd &:hover,
+  .projects-wrapper--even &:hover {
+    flex-basis: 37.1vw;
+  }
+
+  &-link {
+    font-size: 0;
+    position: absolute;
+    inset: 0;
+
+    display: none;
+  }
+
+  &-img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 37.1vw;
+    background: var(--color-primary-dark);
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-name {
+    position: relative;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 99%;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+    opacity: 0;
+    top: 10px;
+    transition: opacity 0s, top 0s;
+    transition-delay: 0s;
+
+    .project:hover & {
+      opacity: 1;
+      top: 0;
+      transition: opacity 0.7s, top 0.5s;
+      transition-delay: 0.4s;
+    }
+  }
+
+  &-description {
+    position: relative;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 99%;
+    color: var(--color-accent);
+    opacity: 0;
+    top: 10px;
+    transition: opacity 0s, top 0s;
+    transition-delay: 0s;
+
+    .project:hover & {
+      opacity: 1;
+      top: 0;
+      transition: opacity 0.7s, top 0.5s;
+      transition-delay: 0.6s;
+    }
   }
 }
