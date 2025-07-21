@@ -1,3 +1,5 @@
+@import './mixins';
+
 .map {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,10 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-dark);
+
+    @include xl {
+      font-size: 26px;
+    }
   }
 }
 
@@ -57,14 +63,22 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+
+    @include xl {
+      font-size: 130px;
+    }
   }
   &-plus {
     font-weight: 700;
-    font-size: 49px;
+    font-size: 48px;
     line-height: 97%;
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+
+    @include xl {
+      font-size: 62px;
+    }
   }
   &-description {
     font-weight: 700;
@@ -73,5 +87,9 @@
     text-align: center;
     text-transform: uppercase;
     color: #505353;
+
+    @include xl {
+      font-size: 24px;
+    }
   }
 }

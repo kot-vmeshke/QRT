@@ -1,3 +1,5 @@
+@import './mixins';
+
 .hero {
   position: relative;
 
@@ -11,6 +13,10 @@
     height: 100svh;
     padding-bottom: 8.7vh;
     overflow-x: hidden;
+
+    @include xl {
+      row-gap: 28px;
+    }
 
     &-image {
       position: absolute;
@@ -27,12 +33,23 @@
       align-items: center;
       justify-content: center;
       gap: 44px;
+
+      @include xl {
+        gap: 56px;
+      }
     }
 
     &-text-wrap {
       position: relative;
       top: 50svh;
       transform: translate(0, -39%);
+
+      img {
+        @include xl {
+          width: 1920px;
+          height: auto;
+        }
+      }
     }
 
     &--main {
@@ -60,6 +77,10 @@
     text-align: center;
     color: var(--color-primary-light);
 
+    @include xl {
+      font-size: 114px;
+    }
+
     .hero-slide--main & {
       font-size: 0px;
     }
@@ -82,14 +103,27 @@
       .hero-slide--main & {
         display: none;
       }
+
+      @include xl {
+        width: 544px;
+        height: 26px;
+      }
     }
 
     &::before {
       right: calc(100% + 28px);
+
+      @include xl {
+        right: calc(100% + 36px);
+      }
     }
     &::after {
       left: calc(100% + 28px);
       transform: translate(0, -50%) rotate(180deg);
+
+      @include xl {
+        left: calc(100% + 36px);
+      }
     }
   }
 
@@ -103,10 +137,20 @@
     text-transform: uppercase;
     color: var(--color-primary-light);
 
+    @include xl {
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+
     .hero-slide--main & {
       font-weight: 500;
       font-size: 22px;
       margin-top: -110px;
+
+      @include xl {
+        margin-top: -146px;
+        font-size: 28px;
+      }
     }
   }
 

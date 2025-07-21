@@ -1,3 +1,5 @@
+@import './mixins';
+
 .footer {
   &-container {
     display: grid;
@@ -8,7 +10,7 @@
       'location socials'
       'copyright copyright';
     row-gap: 30px;
-    padding: 111px var(--padding-inline) 44px;
+    padding: 116px var(--padding-inline) 44px;
   }
 
   &-logo {
@@ -27,6 +29,10 @@
 
     span {
       color: var(--color-accent);
+    }
+
+    @include xl {
+      font-size: 54px;
     }
   }
 
@@ -53,10 +59,14 @@
         text-transform: uppercase;
         color: var(--color-accent);
       }
-      
+
       &:hover {
         color: var(--color-accent);
       }
+    }
+
+    @include xl {
+      font-size: 24px;
     }
   }
 
@@ -72,6 +82,10 @@
       text-transform: uppercase;
       text-align: right;
       color: var(--color-accent);
+
+      @include xl {
+        font-size: 32px;
+      }
     }
 
     &-list {
@@ -101,6 +115,10 @@
       svg {
         display: block;
         flex-shrink: 0;
+      }
+
+      @include xl {
+        font-size: 24px;
       }
     }
   }

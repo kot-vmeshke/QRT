@@ -1,3 +1,5 @@
+@import './mixins';
+
 .why-us {
   display: flex;
   flex-direction: column;
@@ -10,9 +12,12 @@
     font-weight: 500;
     font-size: 20px;
     line-height: 173%;
-    letter-spacing: 0%;
     text-align: center;
     text-transform: uppercase;
+
+    @include xl {
+      font-size: 26px;
+    }
   }
 
   &-list {
@@ -34,6 +39,10 @@
   background: url(../img/noise.png),
     linear-gradient(244.75deg, #2f2f2f -36.13%, #505353 97.37%);
   box-shadow: inset 84px -198px 235px 0 rgba(0, 0, 0, 0.25);
+
+  @include xl {
+    min-height: 342px;
+  }
 
   &-img {
     position: absolute;
@@ -59,6 +68,10 @@
     span {
       display: block;
       color: var(--color-accent);
+    }
+
+    @include xl {
+      font-size: 42px;
     }
   }
 }

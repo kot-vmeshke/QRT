@@ -1,3 +1,5 @@
+@import './mixins';
+
 .services {
   display: flex;
   flex-direction: column;
@@ -17,6 +19,10 @@
     line-height: 176%;
     text-align: center;
     text-transform: uppercase;
+
+    @include xl {
+      font-size: 30px;
+    }
   }
 }
 
@@ -36,6 +42,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
     padding: 65px 0;
 
     transition: transform 0.5s;
@@ -54,6 +61,11 @@
     line-height: 97%;
     text-transform: uppercase;
     color: var(--color-primary-light);
+
+    @include xl {
+      margin-bottom: 24px;
+      font-size: 68px;
+    }
   }
   &-subtitle {
     margin-bottom: 28px;
@@ -62,6 +74,11 @@
     line-height: 97%;
     text-transform: uppercase;
     color: var(--color-accent);
+
+    @include xl {
+      margin-bottom: 36px;
+      font-size: 28px;
+    }
   }
   &-text {
     font-weight: 500;
@@ -70,12 +87,16 @@
     &:not(:last-child) {
       margin-bottom: 28px;
     }
+
+    @include xl {
+      font-size: 22px;
+    }
   }
 
   &-image {
     flex-shrink: 0;
     position: relative;
-    width: 45vw;
+    width: 49.5%;
     aspect-ratio: 1.13;
     border-radius: 120px 0 0 120px;
     overflow: hidden;
@@ -98,6 +119,10 @@
 
       .service--invert & {
         inset: 0 auto 0 0;
+      }
+
+      @include xl {
+        width: 24px;
       }
     }
 
