@@ -1,3 +1,5 @@
+@import './mixins';
+
 .clients {
   display: flex;
   flex-direction: column;
@@ -8,11 +10,26 @@
 
   overflow: hidden;
 
+  @include lt {
+    padding: 140px 0;
+    gap: 80px;
+  }
+
   &-wrapper {
     width: 100%;
 
+    @include lt {
+      padding: 0 var(--padding-inline);
+    }
+
     .swiper-wrapper {
       transition-timing-function: linear;
+
+      @include lt {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
     }
   }
 }
@@ -44,5 +61,9 @@
     display: block;
     object-position: center;
     transition: all 0.5s;
+  }
+
+  @include lt {
+    opacity: 1;
   }
 }

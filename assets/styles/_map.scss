@@ -32,6 +32,11 @@
   column-gap: 26px;
   width: 100%;
   list-style: none;
+
+  @include lt {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 26px;
+  }
 }
 
 .counter {

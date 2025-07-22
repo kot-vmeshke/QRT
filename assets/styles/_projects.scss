@@ -23,6 +23,10 @@
     text-transform: uppercase;
     color: var(--color-primary-dark);
 
+    @include lt {
+      font-size: 20px;
+    }
+
     @include xl {
       max-width: 1200px;
       font-size: 32px;
@@ -30,9 +34,11 @@
   }
 
   &-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
     width: 100%;
-    display: flex;
-    column-gap: 22px;
+    padding: 0 var(--padding-inline);
   }
 }
 
@@ -44,38 +50,10 @@
   justify-content: flex-end;
   gap: 11px;
   width: 100%;
-  min-height: 534px;
+  aspect-ratio: 1;
   padding: 32px 30px;
+  border-radius: 4px;
   overflow: hidden;
-  transition: flex-basis 0.4s ease;
-
-  &:nth-child(1) {
-    flex-basis: 34.3vw;
-    border-radius: 0 4px 4px 0;
-
-    .projects-wrapper--even & {
-      flex-basis: 24.2vw;
-    }
-  }
-
-  &:nth-child(2) {
-    flex-basis: 37.1vw;
-    border-radius: 4px;
-  }
-
-  &:nth-child(3) {
-    flex-basis: 25.9vw;
-    border-radius: 4px 0 0 4px;
-
-    .projects-wrapper--even & {
-      flex-basis: 36vw;
-    }
-  }
-
-  .projects-wrapper--odd &:hover,
-  .projects-wrapper--even &:hover {
-    flex-basis: 37.1vw;
-  }
 
   &-link {
     font-size: 0;
@@ -91,7 +69,7 @@
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 0);
-    width: 37.1vw;
+    width: 100%;
     background: var(--color-primary-dark);
     filter: grayscale(1);
     transition: filter 0.4s;
@@ -105,6 +83,16 @@
       transition: opacity 0.4s;
     }
 
+    &-cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-primary-dark);
+      z-index: 2;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -113,6 +101,14 @@
     }
 
     .project:hover & {
+      filter: grayscale(0);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    @include lt {
       filter: grayscale(0);
 
       &::after {
@@ -140,6 +136,12 @@
       transition-delay: 0.4s;
     }
 
+    @include lt {
+      opacity: 1;
+      top: 0;
+      font-size: 38px;
+    }
+
     @include xl {
       font-size: 64px;
     }
@@ -161,6 +163,12 @@
       top: 0;
       transition: opacity 0.7s, top 0.5s;
       transition-delay: 0.6s;
+    }
+
+    @include lt {
+      opacity: 1;
+      top: 0;
+      font-size: 18px;
     }
 
     @include xl {

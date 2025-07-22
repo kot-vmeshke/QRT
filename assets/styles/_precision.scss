@@ -11,6 +11,13 @@
     var(--gradient-bg-light);
   background-blend-mode: overlay, normal;
 
+  @include lt {
+    padding: 54px 0 440px;
+    background: url(../img/precision_logo.svg) no-repeat center bottom / 1024px
+        auto,
+      var(--gradient-bg-light);
+  }
+
   &-text {
     max-width: 926px;
     margin: 0 var(--padding-inline);

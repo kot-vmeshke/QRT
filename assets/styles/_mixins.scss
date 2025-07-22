@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin lt {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}

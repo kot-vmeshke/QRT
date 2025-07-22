@@ -174,3 +174,26 @@ button {
     }
   }
 }
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s, background-color 0.15s, width 0.5s, height 0.5s,
+    filter 0.15s;
+  transition-timing-function: ease;
+  z-index: 9999;
+  filter: blur(0);
+}
+
+.custom-cursor.hover {
+  transform: translate(-50%, -50%) scale(2);
+  background-color: rgba(255, 255, 255, 0.2);
+  filter: blur(2px);
+}
