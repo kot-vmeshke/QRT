@@ -27,15 +27,25 @@
 }
 
 .counters-wrap {
+  --column-gap: 26px;
+  --row-gap: 26px;
+  --column-count: 4;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 26px;
+  grid-template-columns: repeat(
+    var(--column-count),
+    calc(
+      (100% - var(--column-gap) * (var(--column-count) - 1)) /
+        var(--column-count)
+    )
+  );
+  gap: var(--row-gap) var(--column-gap);
   width: 100%;
   list-style: none;
 
   @include lt {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px 26px;
+    --row-gap: 48px;
+    --column-count: 2;
   }
 }
 
