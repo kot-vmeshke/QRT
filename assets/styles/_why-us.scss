@@ -44,6 +44,51 @@
     linear-gradient(244.75deg, #2f2f2f -36.13%, #505353 97.37%);
   box-shadow: inset 84px -198px 235px 0 rgba(0, 0, 0, 0.25);
 
+  transition: filter 0.7s;
+  overflow: hidden;
+
+  --glow-size: 24px;
+  --glow-color: rgb(247 141 30 / 80%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 100%;
+    height: 150%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    filter: blur(5px);
+    transition: left 1s ease;
+    z-index: 3;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, var(--color-accent));
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 1;
+  }
+
+  &:hover {
+    filter: drop-shadow(0 0 var(--glow-size) var(--glow-color));
+
+    &::before {
+      left: 125%;
+    }
+
+    &::after {
+      opacity: 0.3;
+    }
+  }
+
   @include xl {
     min-height: 342px;
   }
@@ -53,7 +98,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.5s;
+    transition: transform 0.5s, opacity 0.7s;
 
     .feature:hover & {
       transform: translate(-50%, -50%) scale(1.1);
@@ -68,6 +113,7 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+    z-index: 4;
 
     span {
       display: block;

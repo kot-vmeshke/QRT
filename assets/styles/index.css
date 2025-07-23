@@ -50,6 +50,9 @@
     linear-gradient(128.58deg, #e7e9e8 1.23%, #9a9da2 128.79%);
   --font-family: "Barlow", Arial, Helvetica, system-ui, sans-serif;
   --padding-inline: 8.5vw;
+  --glow-size: 10px;
+  --glow-color: var(--color-accent);
+  --filter-accent-glow: drop-shadow(0 0 var(--glow-size) var(--glow-color));
 }
 
 html,
@@ -257,7 +260,7 @@ button {
   margin-top: 4px;
 }
 .header-burger:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-accent);
 }
 .header-burger svg {
   display: block;
@@ -964,6 +967,10 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: var(--color-primary-light);
+  transition: filter 0.7s;
+}
+.counter:hover .counter-count {
+  filter: var(--filter-accent-glow);
 }
 @media (min-width: 1921px) {
   .counter-count {
@@ -977,6 +984,10 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: var(--color-primary-light);
+  transition: filter 0.7s;
+}
+.counter:hover .counter-plus {
+  filter: var(--filter-accent-glow);
 }
 @media (min-width: 1921px) {
   .counter-plus {
@@ -1039,6 +1050,40 @@ button {
   border-radius: 4px;
   background: url(../img/noise.png), linear-gradient(244.75deg, #2f2f2f -36.13%, #505353 97.37%);
   box-shadow: inset 84px -198px 235px 0 rgba(0, 0, 0, 0.25);
+  transition: filter 0.7s;
+  overflow: hidden;
+  --glow-size: 24px;
+  --glow-color: rgb(247 141 30 / 80%);
+}
+.feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 150%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(5px);
+  transition: left 1s ease;
+  z-index: 3;
+}
+.feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+.feature:hover {
+  filter: drop-shadow(0 0 var(--glow-size) var(--glow-color));
+}
+.feature:hover::before {
+  left: 125%;
+}
+.feature:hover::after {
+  opacity: 0.3;
 }
 @media (min-width: 1921px) {
   .feature {
@@ -1050,7 +1095,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: transform 0.5s;
+  transition: transform 0.5s, opacity 0.7s;
 }
 .feature:hover .feature-img {
   transform: translate(-50%, -50%) scale(1.1);
@@ -1063,6 +1108,7 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: var(--color-primary-light);
+  z-index: 4;
 }
 .feature-name span {
   display: block;

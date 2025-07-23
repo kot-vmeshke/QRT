@@ -18,6 +18,10 @@
   --font-family: 'Barlow', Arial, Helvetica, system-ui, sans-serif;
 
   --padding-inline: 8.5vw;
+
+  --glow-size: 10px;
+  --glow-color: var(--color-accent);
+  --filter-accent-glow: drop-shadow(0 0 var(--glow-size) var(--glow-color));
 }
 
 html,

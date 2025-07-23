@@ -68,6 +68,11 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+    transition: filter 0.7s;
+
+    .counter:hover & {
+      filter: var(--filter-accent-glow);
+    }
 
     @include xl {
       font-size: 130px;
@@ -80,6 +85,12 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+
+    transition: filter 0.7s;
+
+    .counter:hover & {
+      filter: var(--filter-accent-glow);
+    }
 
     @include xl {
       font-size: 62px;
