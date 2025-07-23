@@ -700,6 +700,35 @@ button {
   filter: grayscale(0%) brightness(0.5);
   scale: 1.05;
 }
+.hero-slide-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  transition: transform 1500ms, filter 0.3s, scale 1s;
+}
+.hero-slide-poster, .hero-slide-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.hero-slide-poster, .hero-slide-video {
+  filter: grayscale(100%) brightness(0.5) contrast(0.9);
+}
+.hero-slide-video {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+.hero-slide-video.active {
+  opacity: 1;
+  visibility: visible;
+}
 .hero-slide-bottom {
   position: relative;
   display: flex;

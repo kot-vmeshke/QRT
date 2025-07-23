@@ -35,11 +35,11 @@ const initHeroSlider = () => {
   const swiper = new Swiper(heroSlider, {
     spaceBetween: 0,
     speed: 1500,
-    // autoplay: {
-    //   delay: 5000,
-    //   disableOnInteraction: false,
-    //   pauseOnMouseEnter: false,
-    // },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: false,
+    },
     breakpoints: {
       0: { autoplay: false },
       1200: {
@@ -61,7 +61,7 @@ const initHeroSlider = () => {
           const progress = slide.progress;
           const translate = swiper.width * interleaveOffset * progress;
           slide.querySelector(
-            '.hero-slide-image'
+            '[data-slide-image]'
           ).style.transform = `translate3d(${translate}px, 0, 0)`;
         });
       },
@@ -74,7 +74,7 @@ const initHeroSlider = () => {
         this.slides.forEach((slide) => {
           slide.style.transition = `${speed}ms`;
           slide.querySelector(
-            '.hero-slide-image'
+            '[data-slide-image]'
           ).style.transition = `${speed}ms`;
         });
       },
@@ -196,10 +196,33 @@ const handleCustomCursor = () => {
   }
 };
 
+const handleMainSlide = () => {
+  const slide = document.querySelector('.hero-slide--main');
+  const video = slide.querySelector('.hero-slide-video');
+
+  let hasPlayed = false;
+
+  slide.addEventListener('pointermove', () => {
+    if (!hasPlayed) {
+      video.play();
+      hasPlayed = true;
+    }
+    video.classList.add('active');
+  });
+
+  slide.addEventListener('pointerleave', () => {
+    video.classList.remove('active');
+    hasPlayed = false;
+    video.pause();
+    video.currentTime = 0;
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initBurgerMenu();
   initHeroSlider();
   initClientsSlider();
 
   handleCustomCursor();
+  handleMainSlide();
 });
