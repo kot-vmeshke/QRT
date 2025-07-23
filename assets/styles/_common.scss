@@ -237,10 +237,15 @@ button {
   order: 2;
 }
 
+.border-btn-box:hover .arrow-btn::before,
 .arrow-btn:hover::before {
   width: 30px;
 }
+.border-btn-box:hover .arrow-btn {
+  color: var(--color-accent);
+}
 
+.border-btn-box:hover .arrow-btn::after,
 .arrow-btn:hover::after {
   border-right: 2px solid var(--color-accent);
   border-top: 2px solid var(--color-accent);
@@ -260,8 +265,8 @@ button {
   overflow: hidden;
 }
 
-.border-btn-box:before,
-.border-btn-inner:after {
+.border-btn-box::before,
+.border-btn-inner::after {
   position: absolute;
   width: calc(100% + 1px);
   height: 1px;
@@ -274,8 +279,8 @@ button {
   transform-origin: left;
 }
 
-.border-btn-box:after,
-.border-btn-inner:before {
+.border-btn-box::after,
+.border-btn-inner::before {
   position: absolute;
   width: 1px;
   height: calc(100% + 2px);
@@ -288,7 +293,7 @@ button {
   transform-origin: top;
 }
 
-.border-btn-inner:before {
+.border-btn-inner::before {
   top: auto;
   right: auto;
   bottom: -1px;
@@ -296,7 +301,7 @@ button {
   transform-origin: bottom;
 }
 
-.border-btn-inner:after {
+.border-btn-inner::after {
   top: auto;
   left: auto;
   bottom: -1px;
@@ -304,13 +309,13 @@ button {
   transform-origin: right;
 }
 
-.border-btn-box:hover:before,
-.border-btn-box:hover .border-btn-inner:after {
+.border-btn-box:hover::before,
+.border-btn-box:hover .border-btn-inner::after {
   transform: scaleX(1);
 }
 
-.border-btn-box:hover:after,
-.border-btn-box:hover .border-btn-inner:before {
+.border-btn-box:hover::after,
+.border-btn-box:hover .border-btn-inner::before {
   transform: scaleY(1);
 }
 
