@@ -130,7 +130,7 @@ function revealImage(containerSelector) {
     if (!cover) return;
 
     const direction = cover.dataset.direction || 'right';
-    const xValue = direction === 'left' ? -100 : 100;
+    const xValue = direction === 'left' ? -101 : 101;
 
     gsap
       .timeline({
@@ -150,3 +150,4 @@ function revealImage(containerSelector) {
 
 revealImage('.service-image');
 revealImage('.project-img');
+revealImage('.section-title-wrapper');

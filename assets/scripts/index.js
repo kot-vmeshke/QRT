@@ -98,10 +98,27 @@ const initHeroSlider = () => {
           }
         };
 
+        const cover = active.querySelectorAll('[data-image-cover]');
+        if (cover.length) {
+          cover.forEach((el) => {
+            const direction = el.dataset.direction || 'right';
+            const xValue = direction === 'left' ? -101 : 101;
+
+            gsap.set(el, { xPercent: 0 });
+
+            gsap.to(el, {
+              xPercent: xValue,
+              duration: 1,
+              ease: 'power2.out',
+              delay: 1.25,
+            });
+          });
+        }
+
         animateEl('.hero-title');
         animateEl('.hero-slide-text-wrap img');
-        animateEl('.hero-description', 100);
-        animateEl('.button');
+        animateEl('.hero-description', 100, 1.75);
+        animateEl('.button', 0, 2.25);
       },
     },
   });
@@ -152,7 +169,7 @@ const handleCustomCursor = () => {
   if (!cursor) return;
 
   const hoverTargets = document.querySelectorAll('a, button, .cursor-hover');
-  const specialSection = document.querySelector('.contacts'); 
+  const specialSection = document.querySelector('.contacts');
 
   const moveCursor = (e) => {
     cursor.style.top = `${e.clientY}px`;

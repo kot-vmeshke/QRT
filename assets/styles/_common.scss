@@ -13,7 +13,14 @@
   --color-text: #c5c5c5;
   --color-accent: #f78d1e;
   --color-bg-dark: #282928;
-  --gradient-bg-light: url(../img/noise.png),
+  --color-bg-light: #e7e9e8;
+  --gradient-bg-light: linear-gradient(
+      to bottom,
+      #e7e9e8 1.23%,
+      #e7e9e8 10%,
+      transparent
+    ),
+    url(../img/noise.png),
     linear-gradient(128.58deg, #e7e9e8 1.23%, #9a9da2 128.79%);
   --font-family: 'Barlow', Arial, Helvetica, system-ui, sans-serif;
 
@@ -81,6 +88,29 @@ button {
 
   @include xl {
     font-size: 110px;
+  }
+
+  &-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-dark);
+    z-index: 2;
+
+    .section-title--dark & {
+      background-color: var(--color-bg-light);
+    }
+
+    .contacts & {
+      background-color: var(--color-accent);
+    }
   }
 }
 
