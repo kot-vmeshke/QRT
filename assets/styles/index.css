@@ -710,6 +710,8 @@ button {
   position: absolute;
   inset: 0;
   z-index: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   transition: transform 1500ms, filter 0.3s, scale 1s;
 }
@@ -721,6 +723,7 @@ button {
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
+  transition: 1.5s;
 }
 .hero-slide-poster, .hero-slide-video {
   filter: grayscale(100%) brightness(0.5) contrast(0.9);
@@ -728,8 +731,10 @@ button {
 .hero-slide-video {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1.5s ease;
+  transition: opacity 1.5s ease, visibility 2s linear;
   pointer-events: none;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .hero-slide-video.active {
   opacity: 1;

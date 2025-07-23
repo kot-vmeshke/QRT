@@ -8,36 +8,39 @@ gsap.registerPlugin(ScrollTrigger);
 // ============================
 const heroTimeline = gsap.timeline();
 
-heroTimeline
-  .fromTo(
-    '.hero-slide-text-wrap img',
-    { opacity: 0, y: 120 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1.5,
-      ease: 'power2.out',
-    }
-  )
-  .fromTo(
-    '.hero-slide--main .hero-description',
-    { opacity: 0, y: 100 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-    },
-    '-=0.5'
-  )
-  .fromTo(
-    '.hero-slide--main .border-btn-box',
-    { opacity: 0 },
-    {
-      opacity: 1,
-      duration: 1,
-    },
-    '-=0.5'
-  );
+document.addEventListener('DOMContentLoaded', () => {
+  heroTimeline
+    .fromTo(
+      '.hero-slide-text-wrap img',
+      { opacity: 0, y: 120 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: 'power2.out',
+      },
+      '+=0.5'
+    )
+    .fromTo(
+      '.hero-slide--main .hero-description',
+      { opacity: 0, y: 100 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+      },
+      '-=0.5'
+    )
+    .fromTo(
+      '.hero-slide--main .border-btn-box',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1,
+      },
+      '-=0.5'
+    );
+});
 
 // ============================
 // Fade-In Elements on Scroll

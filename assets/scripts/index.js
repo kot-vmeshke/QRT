@@ -197,7 +197,7 @@ const handleCustomCursor = () => {
 };
 
 const handleMainSlide = () => {
-  const slide = document.querySelector('.hero-slide--main');
+  const slide = document.querySelector('.hero');
   const video = slide.querySelector('.hero-slide-video');
 
   let hasPlayed = false;
