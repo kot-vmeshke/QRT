@@ -722,7 +722,7 @@ button {
 .hero-slide-video {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.8s ease;
+  transition: opacity 1.5s ease;
   pointer-events: none;
 }
 .hero-slide-video.active {
