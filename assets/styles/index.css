@@ -186,7 +186,6 @@ button {
   width: 100%;
   max-width: 316px;
   padding: 11px;
-  border-radius: 4px;
   border: 1px solid var(--color-primary-light);
   font-family: inherit;
   font-weight: 600;
@@ -228,6 +227,142 @@ button {
   background-color: var(--color-primary-dark);
 }
 
+.arrow-btn {
+  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.arrow-btn::before {
+  content: "";
+  display: block;
+  position: relative;
+  right: -12px;
+  width: 0;
+  height: 2px;
+  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  transform-origin: right;
+  background: var(--color-accent);
+  order: 1;
+}
+
+.arrow-btn::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-primary-light);
+  border-top: 2px solid var(--color-primary-light);
+  transform: rotate(45deg);
+  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+  order: 2;
+}
+
+.arrow-btn:hover::before {
+  width: 30px;
+}
+
+.arrow-btn:hover::after {
+  border-right: 2px solid var(--color-accent);
+  border-top: 2px solid var(--color-accent);
+}
+
+.border-btn-box {
+  position: relative;
+  border: 1px solid var(--color-primary-light);
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  max-width: 316px;
+  padding: 14px;
+}
+
+.border-btn-inner {
+  overflow: hidden;
+}
+
+.border-btn-box:before,
+.border-btn-inner:after {
+  position: absolute;
+  width: calc(100% + 1px);
+  height: 1px;
+  content: "";
+  background: var(--color-accent);
+  top: -1px;
+  left: 0;
+  transition: 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.border-btn-box:after,
+.border-btn-inner:before {
+  position: absolute;
+  width: 1px;
+  height: calc(100% + 2px);
+  content: "";
+  background: var(--color-accent);
+  top: -1px;
+  right: -1px;
+  transition: 0.5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.border-btn-inner:before {
+  top: auto;
+  right: auto;
+  bottom: -1px;
+  left: -1px;
+  transform-origin: bottom;
+}
+
+.border-btn-inner:after {
+  top: auto;
+  left: auto;
+  bottom: -1px;
+  right: 0;
+  transform-origin: right;
+}
+
+.border-btn-box:hover:before,
+.border-btn-box:hover .border-btn-inner:after {
+  transform: scaleX(1);
+}
+
+.border-btn-box:hover:after,
+.border-btn-box:hover .border-btn-inner:before {
+  transform: scaleY(1);
+}
+
+.border-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 145%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-primary-light);
+  transition: color 0.5s;
+}
+.border-btn:hover {
+  color: var(--color-accent);
+}
+
+@media only screen and (max-width: 767px) {
+  .border-btn {
+    line-height: 55px;
+    padding: 0 55px;
+  }
+}
+@media only screen and (max-width: 549px) {
+  .border-btn {
+    line-height: 50px;
+    padding: 0 50px;
+  }
+}
 .custom-cursor {
   position: fixed;
   top: 50%;
@@ -591,11 +726,12 @@ button {
 .hero-slide--main {
   justify-content: flex-start;
 }
-.hero-slide--main .button {
+.hero-slide--main .border-btn-box {
   align-self: flex-start;
   margin: auto 0 0 8.5vw;
 }
-.hero-slide .button {
+.hero-slide .button,
+.hero-slide .border-btn-box {
   position: relative;
   z-index: 3;
   flex-shrink: 0;
@@ -698,24 +834,27 @@ button {
 }
 .hero-button {
   position: absolute;
-  bottom: 11.3vh;
+  bottom: 8.7vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  aspect-ratio: 1;
+  gap: 4px;
+  padding: 12px;
   flex-shrink: 0;
-  cursor: pointer;
   opacity: 0.7;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, width 0.5s;
   z-index: 2;
+  font-size: 0;
 }
 .hero-button--next {
   right: 8.5vw;
-  transform: rotate(180deg);
 }
 .hero-button--prev {
-  right: 10.5vw;
+  right: 12.5vw;
+  transform: rotate(180deg);
+}
+.hero-button--prev::before {
+  transform-origin: left;
 }
 .not-first-slide .hero-button--prev {
   right: auto;
@@ -726,6 +865,13 @@ button {
 }
 .not-first-slide .hero-button {
   bottom: 8.7vh;
+}
+.hero-button::after {
+  width: 12px;
+  height: 12px;
+}
+.hero-button::before {
+  right: -18px;
 }
 
 .precision {

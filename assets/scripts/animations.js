@@ -30,7 +30,7 @@ heroTimeline
     '-=0.5'
   )
   .fromTo(
-    '.hero-slide--main .button',
+    '.hero-slide--main .border-btn-box',
     { opacity: 0 },
     {
       opacity: 1,

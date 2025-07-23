@@ -35,11 +35,11 @@ const initHeroSlider = () => {
   const swiper = new Swiper(heroSlider, {
     spaceBetween: 0,
     speed: 1500,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    //   pauseOnMouseEnter: false,
+    // },
     breakpoints: {
       0: { autoplay: false },
       1200: {
@@ -118,7 +118,7 @@ const initHeroSlider = () => {
         animateEl('.hero-title');
         animateEl('.hero-slide-text-wrap img');
         animateEl('.hero-description', 100, 1.75);
-        animateEl('.button', 0, 2.25);
+        animateEl('.border-btn-box', 0, 2.25);
       },
     },
   });
