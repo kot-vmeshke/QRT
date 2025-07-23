@@ -763,15 +763,12 @@ button {
 
 .service {
   display: flex;
-  -moz-column-gap: 138px;
-       column-gap: 138px;
-  padding: 36px 0 36px var(--padding-inline);
+  -moz-column-gap: 80px;
+       column-gap: 80px;
+  padding: 36px var(--padding-inline);
 }
 .service--invert {
   flex-direction: row-reverse;
-  -moz-column-gap: 96px;
-       column-gap: 96px;
-  padding: 36px var(--padding-inline) 36px 0;
 }
 @media (max-width: 1200px) {
   .service--invert {
@@ -800,12 +797,18 @@ button {
   }
 }
 .service-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   margin-bottom: 20px;
   font-weight: 700;
   font-size: 54px;
   line-height: 97%;
   text-transform: uppercase;
+  text-align: center;
   color: var(--color-primary-light);
+  z-index: 1;
 }
 @media (max-width: 1200px) {
   .service-title {
@@ -858,7 +861,7 @@ button {
 .service-image {
   flex-shrink: 0;
   position: relative;
-  width: 49.5%;
+  width: 50%;
   aspect-ratio: 1.13;
   border-radius: 120px 0 0 120px;
   overflow: hidden;
@@ -866,13 +869,34 @@ button {
 .service--invert .service-image {
   border-radius: 0 120px 120px 0;
 }
+.service-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(221deg, rgba(247, 141, 30, 0.4) 0%, rgba(247, 141, 30, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+.service-image:hover::before {
+  opacity: 0.5;
+}
+.service-image:hover::after {
+  background-color: var(--color-accent);
+}
+.service-image:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%) brightness(1);
+}
 .service-image::after {
   content: "";
   position: absolute;
   inset: 0 0 0 auto;
   display: block;
   width: 18px;
-  background: linear-gradient(180deg, #f78d1e 0%, rgba(247, 141, 30, 0) 100%);
+  background: transparent linear-gradient(180deg, #f78d1e 0%, rgba(247, 141, 30, 0) 100%);
+  z-index: 3;
+  transition: background-color 0.7s;
 }
 .service--invert .service-image::after {
   inset: 0 auto 0 0;
@@ -897,10 +921,8 @@ button {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: transform 0.5s;
-}
-.service:hover .service-image img {
-  transform: scale(1.05);
+  transition: transform 0.5s, filter 0.5s;
+  filter: grayscale(100%) brightness(0.9);
 }
 
 .map {
@@ -1172,7 +1194,36 @@ button {
   aspect-ratio: 1;
   padding: 32px 30px;
   border-radius: 4px;
+  transition: filter 0.7s;
   overflow: hidden;
+}
+.project::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: -150%;
+  width: 100%;
+  height: 150%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(5px);
+  transition: left 1s ease;
+  z-index: 2;
+}
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 1;
+}
+.project:hover::before {
+  left: 125%;
+}
+.project:hover::after {
+  opacity: 0.4;
 }
 .project-link {
   font-size: 0;
@@ -1206,7 +1257,7 @@ button {
   width: 100%;
   height: 100%;
   background-color: var(--color-primary-dark);
-  z-index: 2;
+  z-index: 4;
 }
 .project-img img {
   display: block;
@@ -1240,6 +1291,7 @@ button {
   top: 10px;
   transition: opacity 0s, top 0s;
   transition-delay: 0s;
+  z-index: 3;
 }
 .project:hover .project-name {
   opacity: 1;
@@ -1269,6 +1321,7 @@ button {
   top: 10px;
   transition: opacity 0s, top 0s;
   transition-delay: 0s;
+  z-index: 3;
 }
 .project:hover .project-description {
   opacity: 1;
