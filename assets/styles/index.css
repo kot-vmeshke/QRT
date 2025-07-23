@@ -37,6 +37,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 :root {
@@ -85,7 +86,6 @@ button {
   border: none;
   color: inherit;
   background: transparent;
-  cursor: pointer;
 }
 
 .container {
@@ -201,24 +201,34 @@ button {
 
 .custom-cursor {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  pointer-events: none;
+  top: 50%;
+  left: -100px;
   transform: translate(-50%, -50%);
-  transition: transform 0.15s, background-color 0.15s, width 0.5s, height 0.5s, filter 0.15s;
-  transition-timing-function: ease;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  box-sizing: border-box;
   z-index: 9999;
-  filter: blur(0);
+  transition-property: width, height, background;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.2, 0.96, 0.34, 1);
+  border-radius: 50%;
+  background: var(--color-accent);
+  overflow: hidden;
+}
+.custom-cursor--on-accent {
+  background: var(--color-bg-dark);
 }
 
 .custom-cursor.hover {
-  transform: translate(-50%, -50%) scale(2);
-  background-color: rgba(255, 255, 255, 0.2);
-  filter: blur(2px);
+  width: 65px;
+  height: 65px;
+  background: rgba(247, 141, 30, 0.15);
+  box-shadow: 0 0 30px rgba(247, 141, 30, 0.8);
+}
+.custom-cursor.hover--on-accent {
+  background: var(--color-bg-dark);
+  box-shadow: 0 0 30px var(--color-bg-dark);
 }
 
 .header {

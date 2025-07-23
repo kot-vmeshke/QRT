@@ -152,6 +152,7 @@ const handleCustomCursor = () => {
   if (!cursor) return;
 
   const hoverTargets = document.querySelectorAll('a, button, .cursor-hover');
+  const specialSection = document.querySelector('.contacts'); 
 
   const moveCursor = (e) => {
     cursor.style.top = `${e.clientY}px`;
@@ -167,6 +168,15 @@ const handleCustomCursor = () => {
     el.addEventListener('mouseenter', addHover);
     el.addEventListener('mouseleave', removeHover);
   });
+
+  if (specialSection) {
+    specialSection.addEventListener('mouseenter', () => {
+      cursor.classList.add('custom-cursor--on-accent');
+    });
+    specialSection.addEventListener('mouseleave', () => {
+      cursor.classList.remove('custom-cursor--on-accent');
+    });
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
