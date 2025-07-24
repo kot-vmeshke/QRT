@@ -18,6 +18,13 @@
       var(--gradient-bg-light);
   }
 
+  @include md {
+    padding: 36px 0 200px;
+    background: url(../img/precision_logo.svg) no-repeat center bottom / 376px
+        auto,
+      var(--gradient-bg-light);
+  }
+
   &-text {
     max-width: 926px;
     margin: 0 var(--padding-inline);
@@ -26,6 +33,10 @@
     line-height: 148%;
     text-align: center;
     color: var(--color-primary-dark);
+
+    @include md {
+      font-size: 14px;
+    }
 
     @include xl {
       max-width: 1200px;
@@ -36,6 +47,9 @@
       margin: 0 auto;
       &:not(:last-child) {
         margin-bottom: 28px;
+        @include md {
+          margin-bottom: 18px;
+        }
       }
     }
   }

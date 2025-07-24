@@ -9,6 +9,20 @@
     font-size: 0;
   }
 
+  &-logo {
+    @include sm {
+      position: relative;
+      width: 120px;
+      z-index: 1;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
   &-container {
     display: flex;
     align-items: flex-start;
@@ -26,6 +40,7 @@
     width: 32px;
     height: 24px;
     margin-top: 4px;
+    z-index: 1;
 
     &:hover {
       color: var(--color-accent);
@@ -64,12 +79,33 @@
     overflow: hidden;
     transition: height 0.5s;
 
+    @include sm {
+      position: fixed;
+      inset: 0;
+      background: #222222 url(../img/noise.png);
+      width: 100vw;
+      height: 100svh;
+      transform: translate(100vw, 0);
+      opacity: 1;
+      transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
     .js-opened & {
       height: 170px;
       opacity: 1;
 
+      @include sm {
+        height: 100svh;
+        transform: translate(0, 0);
+      }
+
       .header-nav-list {
         visibility: visible;
+
+        @include sm {
+          height: 100svh;
+          justify-content: center;
+        }
       }
 
       @include xl {
@@ -87,6 +123,10 @@
       gap: 10px;
       padding: 12px;
 
+      @include sm {
+        gap: 18px;
+      }
+
       @include xl {
         gap: 20px;
       }
@@ -103,6 +143,10 @@
       transition: color 0.3s;
 
       &:hover {
+        color: var(--color-primary-light);
+      }
+
+      @include sm {
         color: var(--color-primary-light);
       }
 

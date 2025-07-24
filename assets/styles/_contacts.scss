@@ -1,3 +1,5 @@
+@import './mixins';
+
 .contacts {
   padding: 152px 0 158px;
   background: var(--color-accent);
@@ -7,6 +9,22 @@
     span {
       color: var(--color-primary-light);
     }
+
+    @include lt {
+      margin-bottom: 60px;
+    }
+
+    @include md {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include lt {
+    padding: 120px 0;
+  }
+
+  @include md {
+    padding: 76px 0;
   }
 
   &-types {
@@ -21,6 +39,11 @@
     li {
       width: 100%;
       max-width: 316px;
+    }
+
+    @include md {
+      flex-direction: column;
+      gap: 24px;
     }
   }
 }

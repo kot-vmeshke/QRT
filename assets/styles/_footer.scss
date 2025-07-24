@@ -11,11 +11,28 @@
       'copyright copyright';
     row-gap: 30px;
     padding: 116px var(--padding-inline) 44px;
+
+    @include sm {
+      padding-top: 50px;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'logo'
+        'title'
+        'location'
+        'contacts'
+        'socials'
+        'copyright';
+      justify-content: center;
+    }
   }
 
   &-logo {
     grid-area: logo;
     justify-self: start;
+
+    @include sm {
+      justify-self: center;
+    }
   }
 
   &-title {
@@ -30,6 +47,11 @@
 
     span {
       color: var(--color-accent);
+    }
+
+    @include sm {
+      text-align: center;
+      font-size: 36px;
     }
 
     @include xl {
@@ -58,10 +80,26 @@
         font-weight: 600;
         text-transform: uppercase;
         color: var(--color-accent);
+
+        @include sm {
+          color: var(--color-primary-light);
+          font-size: 16px;
+        }
       }
 
       &:hover {
         color: var(--color-accent);
+      }
+
+      &:last-child {
+        @include sm {
+          text-align: right;
+        }
+      }
+
+      @include sm {
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 12px;
       }
     }
 
@@ -75,6 +113,14 @@
       }
     }
 
+    @include sm {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
     @include xl {
       font-size: 24px;
     }
@@ -84,6 +130,11 @@
     grid-area: contacts;
     justify-self: end;
 
+    @include sm {
+      justify-self: center;
+      width: 100%;
+    }
+
     &-title {
       margin: 8px 0 30px;
       font-weight: 700;
@@ -92,6 +143,10 @@
       text-transform: uppercase;
       text-align: right;
       color: var(--color-accent);
+
+      @include sm {
+        display: none;
+      }
 
       @include xl {
         font-size: 32px;
@@ -103,6 +158,16 @@
       display: flex;
       flex-direction: column;
       gap: 22px;
+
+      @include sm {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      @include xs {
+        flex-wrap: wrap;
+      }
     }
 
     &-link {
@@ -125,6 +190,21 @@
       svg {
         display: block;
         flex-shrink: 0;
+
+        @include xs {
+          width: 17px;
+          height: 17px;
+        }
+      }
+
+      @include sm {
+        flex-direction: row-reverse;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 12px;
+      }
+
+      @include xs {
+        gap: 14px;
       }
 
       @include xl {
@@ -140,6 +220,11 @@
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 
+    @include sm {
+      justify-self: center;
+      width: 100%;
+    }
+
     &-list {
       list-style: none;
       display: flex;
@@ -147,6 +232,10 @@
       justify-content: flex-end;
       gap: 46px;
       color: #999fa0;
+
+      @include sm {
+        justify-content: space-between;
+      }
     }
 
     &-link {
@@ -176,6 +265,11 @@
 
     @include lt {
       letter-spacing: initial;
+      font-size: 14px;
+    }
+
+    @include sm {
+      line-height: normal;
     }
   }
 }

@@ -11,9 +11,23 @@
     padding: 106px 0 200px;
   }
 
+  @include md {
+    padding: 42px 0 32px;
+  }
+
   &-wrapper {
     margin: 122px 0 132px;
     list-style: none;
+
+    @include md {
+      margin: 50px 0;
+      width: 100%;
+      padding: 0 var(--padding-inline);
+    }
+
+    @include xs {
+      padding: 0;
+    }
   }
 
   &-text {
@@ -28,6 +42,10 @@
       font-size: 20px;
     }
 
+    @include md {
+      font-size: 14px;
+    }
+
     @include xl {
       font-size: 30px;
     }
@@ -39,16 +57,28 @@
   column-gap: 80px;
   padding: 36px var(--padding-inline);
 
+  @include lt {
+    column-gap: 60px;
+  }
+
+  @include md {
+    padding: 0 0 48px;
+    gap: 48px;
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+
   &--invert {
     flex-direction: row-reverse;
 
     @include lt {
       column-gap: 60px;
     }
-  }
 
-  @include lt {
-    column-gap: 60px;
+    @include md {
+      flex-direction: column-reverse;
+      gap: 48px;
+    }
   }
 
   &-text-wrap {
@@ -63,6 +93,14 @@
 
     @include lt {
       padding: 30px 0;
+    }
+
+    @include md {
+      padding: 0;
+    }
+
+    @include xs {
+      padding: 0 var(--padding-inline);
     }
   }
   &-title {
@@ -83,16 +121,25 @@
       font-size: 44px;
     }
 
+    @include md {
+      font-size: 34px;
+
+      span {
+        color: var(--color-accent);
+      }
+    }
+
     @include xl {
       margin-bottom: 24px;
       font-size: 68px;
     }
   }
+
   &-subtitle {
     margin-bottom: 28px;
     font-weight: 700;
     font-size: 22px;
-    line-height: 97%;
+    line-height: normal;
     text-transform: uppercase;
     color: var(--color-accent);
 
@@ -100,9 +147,14 @@
       font-size: 18px;
     }
 
+    @include md {
+      font-size: 16px;
+      text-align: center;
+    }
+
     @include xl {
       margin-bottom: 36px;
-      font-size: 28px;
+      font-size: 30px;
     }
   }
   &-text {
@@ -117,8 +169,14 @@
       font-size: 14px;
     }
 
+    @include md {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
     @include xl {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 
@@ -132,6 +190,21 @@
 
     .service--invert & {
       border-radius: 0 120px 120px 0;
+
+      @include md {
+        border-radius: 0;
+      }
+    }
+
+    @include md {
+      width: 100%;
+      border-radius: 0;
+      aspect-ratio: auto;
+      height: 340px;
+    }
+
+    @include xs {
+      height: 230px;
     }
 
     &::before {
@@ -175,8 +248,26 @@
       z-index: 3;
       transition: background-color 0.7s;
 
+      @include md {
+        inset: auto 0 0 0;
+        width: auto;
+        height: 8px;
+        background: linear-gradient(
+          270deg,
+          #ff8200 0%,
+          #6b4c2c 32.06%,
+          #ffffff 69.7%,
+          #ff8200 100%
+        );
+        opacity: 0.76;
+      }
+
       .service--invert & {
         inset: 0 auto 0 0;
+
+        @include md {
+          inset: auto 0 0 0;
+        }
       }
 
       @include xl {
@@ -201,6 +292,10 @@
       object-fit: cover;
       transition: transform 0.5s, filter 0.5s;
       filter: grayscale(100%) brightness(0.9);
+
+      @include md {
+        filter: grayscale(0) brightness(0.9);
+      }
     }
   }
 }

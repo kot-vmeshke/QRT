@@ -8,12 +8,22 @@
   gap: 26px;
   padding: 126px 0 170px;
 
+  @include md {
+    padding: 48px 0;
+    gap: 48px;
+  }
+
   &-text {
     font-weight: 500;
     font-size: 20px;
     line-height: 173%;
     text-align: center;
     text-transform: uppercase;
+
+    @include md {
+      font-size: 14px;
+      padding: 0 var(--padding-inline);
+    }
 
     @include xl {
       font-size: 26px;
@@ -28,7 +38,11 @@
     list-style: none;
 
     @include lt {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, calc(50% - 8px));
+    }
+
+    @include md {
+      margin-top: 0;
     }
   }
 }
@@ -89,6 +103,12 @@
     }
   }
 
+  @include sm {
+    width: 100%;
+    aspect-ratio: 1;
+    min-height: auto;
+  }
+
   @include xl {
     min-height: 342px;
   }
@@ -102,6 +122,13 @@
 
     .feature:hover & {
       transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    @include sm {
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      display: block;
     }
   }
 
@@ -118,6 +145,14 @@
     span {
       display: block;
       color: var(--color-accent);
+    }
+
+    @include md {
+      font-size: 28px;
+    }
+
+    @include xs {
+      font-size: 20px;
     }
 
     @include xl {

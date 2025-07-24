@@ -35,21 +35,6 @@ const initHeroSlider = () => {
   const swiper = new Swiper(heroSlider, {
     spaceBetween: 0,
     speed: 1500,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: false,
-    },
-    breakpoints: {
-      0: { autoplay: false },
-      1200: {
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
-        },
-      },
-    },
     watchSlidesProgress: true,
     navigation: {
       nextEl: '.hero-button--next',
@@ -135,7 +120,7 @@ const initClientsSlider = () => {
     const wrapper = document.querySelector('.clients-wrapper');
     if (!wrapper) return;
 
-    if (window.innerWidth >= 1200 && !swiper) {
+    if (window.innerWidth > 1200 && !swiper) {
       swiper = new Swiper(wrapper, {
         slidesPerView: 6,
         spaceBetween: 113,
@@ -154,7 +139,7 @@ const initClientsSlider = () => {
       wrapper.addEventListener('mouseleave', () => swiper.autoplay.stop());
     }
 
-    if (window.innerWidth < 1200 && swiper) {
+    if (window.innerWidth <= 1200 && swiper) {
       swiper.destroy(true, true);
       swiper = null;
     }
