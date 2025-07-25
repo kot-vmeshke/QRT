@@ -857,6 +857,7 @@ button {
 
 .hero {
   position: relative;
+  --swiper-pagination-bullet-horizontal-gap: 8px;
 }
 .hero .swiper-wrapper {
   transition-timing-function: ease-in;
@@ -877,6 +878,14 @@ button {
   height: 100svh;
   padding-bottom: 8.7vh;
   overflow-x: hidden;
+}
+@media (max-width: 1024px) {
+  .hero-slide-inner {
+    padding-bottom: 140px;
+    row-gap: 16px;
+    background: linear-gradient(180deg, transparent 40%, #171919 60%, #171919 100%);
+    z-index: 1;
+  }
 }
 @media (min-width: 1921px) {
   .hero-slide-inner {
@@ -900,6 +909,11 @@ button {
 .hero-slide:hover .hero-slide-image {
   scale: 1.05;
 }
+@media (max-width: 1024px) {
+  .hero-slide-image {
+    height: 70%;
+  }
+}
 .hero-slide-media {
   position: absolute;
   inset: 0;
@@ -908,6 +922,11 @@ button {
   height: 100%;
   overflow: hidden;
   transition: transform 1500ms, filter 0.3s, scale 1s;
+}
+@media (max-width: 1024px) {
+  .hero-slide-media {
+    height: 70%;
+  }
 }
 .hero-slide-poster, .hero-slide-video {
   position: absolute;
@@ -918,8 +937,6 @@ button {
      object-fit: cover;
   display: block;
   transition: 1.5s;
-}
-.hero-slide-poster, .hero-slide-video {
   filter: grayscale(100%) brightness(0.5) contrast(0.9);
 }
 .hero-slide-video {
@@ -1000,6 +1017,11 @@ button {
   text-align: center;
   color: var(--color-primary-light);
 }
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: clamp(3rem, 1.6277rem + 5.8552vw, 5.375rem);
+  }
+}
 @media (min-width: 1921px) {
   .hero-title {
     font-size: 114px;
@@ -1009,6 +1031,11 @@ button {
   font-size: 0px;
 }
 .hero-title span {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.hero-title span.accent-color {
   color: var(--color-accent);
 }
 .hero-title::before, .hero-title::after {
@@ -1023,6 +1050,11 @@ button {
 }
 .hero-slide--main .hero-title::before, .hero-slide--main .hero-title::after {
   display: none;
+}
+@media (max-width: 1024px) {
+  .hero-title::before, .hero-title::after {
+    display: none;
+  }
 }
 @media (min-width: 1921px) {
   .hero-title::before, .hero-title::after {
@@ -1051,6 +1083,13 @@ button {
   position: relative;
   overflow: hidden;
 }
+@media (max-width: 1024px) {
+  .hero-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .hero-title-cover {
   position: absolute;
   top: 0;
@@ -1069,6 +1108,12 @@ button {
   text-align: center;
   text-transform: uppercase;
   color: var(--color-primary-light);
+}
+@media (max-width: 1024px) {
+  .hero-description {
+    color: #9a9da2;
+    margin-bottom: 38px;
+  }
 }
 @media (min-width: 1921px) {
   .hero-description {
@@ -1099,6 +1144,11 @@ button {
   z-index: 2;
   font-size: 0;
 }
+@media (max-width: 1024px) {
+  .hero-button {
+    bottom: 46px;
+  }
+}
 .hero-button--next {
   right: 8.5vw;
 }
@@ -1113,11 +1163,14 @@ button {
   right: auto;
   left: 8.5vw;
 }
+@media (max-width: 1024px) {
+  .hero-button--prev {
+    right: auto;
+    left: 8.5vw;
+  }
+}
 .hero-button:hover {
   opacity: 1;
-}
-.not-first-slide .hero-button {
-  bottom: 8.7vh;
 }
 .hero-button::after {
   width: 12px;
@@ -1129,6 +1182,22 @@ button {
 .hero-button.swiper-button-disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+.hero .swiper-horizontal > .swiper-pagination-bullets,
+.hero .swiper-pagination-bullets.swiper-pagination-horizontal,
+.hero .swiper-pagination-custom,
+.hero .swiper-pagination-fraction {
+  bottom: 60px;
+  z-index: 1;
+}
+.hero .swiper-pagination-bullet {
+  background: var(--color-primary-light);
+  opacity: 0.9;
+  width: 4px;
+  height: 4px;
+}
+.hero .swiper-pagination-bullet-active {
+  background: var(--color-accent);
 }
 
 .precision {

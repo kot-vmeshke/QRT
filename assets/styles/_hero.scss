@@ -24,6 +24,18 @@
       padding-bottom: 8.7vh;
       overflow-x: hidden;
 
+      @include md {
+        padding-bottom: 140px;
+        row-gap: 16px;
+        background: linear-gradient(
+          180deg,
+          transparent 40%,
+          #171919 60%,
+          #171919 100%
+        );
+        z-index: 1;
+      }
+
       @include xl {
         row-gap: 28px;
       }
@@ -44,6 +56,10 @@
       .hero-slide:hover & {
         scale: 1.05;
       }
+
+      @include md {
+        height: 70%;
+      }
     }
 
     &-media {
@@ -54,6 +70,10 @@
       height: 100%;
       overflow: hidden;
       transition: transform 1500ms, filter 0.3s, scale 1s;
+
+      @include md {
+        height: 70%;
+      }
     }
 
     &-poster,
@@ -65,10 +85,6 @@
       object-fit: cover;
       display: block;
       transition: 1.5s;
-    }
-
-    &-poster,
-    &-video {
       filter: grayscale(100%) brightness(0.5) contrast(0.9);
     }
 
@@ -160,6 +176,10 @@
     text-align: center;
     color: var(--color-primary-light);
 
+    @include md {
+      font-size: clamp(3rem, 1.6277rem + 5.8552vw, 5.375rem);
+    }
+
     @include xl {
       font-size: 114px;
     }
@@ -169,6 +189,12 @@
     }
 
     span {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    span.accent-color {
       color: var(--color-accent);
     }
 
@@ -184,6 +210,10 @@
       background: url(../img/main-title-element.svg) no-repeat center / contain;
 
       .hero-slide--main & {
+        display: none;
+      }
+
+      @include md {
         display: none;
       }
 
@@ -212,6 +242,12 @@
     &-wrapper {
       position: relative;
       overflow: hidden;
+
+      @include md {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &-cover {
@@ -234,6 +270,11 @@
     text-align: center;
     text-transform: uppercase;
     color: var(--color-primary-light);
+
+    @include md {
+      color: #9a9da2;
+      margin-bottom: 38px;
+    }
 
     @include xl {
       margin-bottom: 10px;
@@ -264,6 +305,10 @@
     z-index: 2;
     font-size: 0;
 
+    @include md {
+      bottom: 46px;
+    }
+
     &--next {
       right: 8.5vw;
     }
@@ -279,14 +324,15 @@
         right: auto;
         left: 8.5vw;
       }
+
+      @include md {
+        right: auto;
+        left: 8.5vw;
+      }
     }
 
     &:hover {
       opacity: 1;
-    }
-
-    .not-first-slide & {
-      bottom: 8.7vh;
     }
 
     &::after {
@@ -302,5 +348,24 @@
       opacity: 0.5;
       pointer-events: none;
     }
+  }
+
+  --swiper-pagination-bullet-horizontal-gap: 8px;
+
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 60px;
+    z-index: 1;
+  }
+  .swiper-pagination-bullet {
+    background: var(--color-primary-light);
+    opacity: 0.9;
+    width: 4px;
+    height: 4px;
+  }
+  .swiper-pagination-bullet-active {
+    background: var(--color-accent);
   }
 }

@@ -85,6 +85,23 @@ const initHeroSlider = () => {
       nextEl: '.hero-button--next',
       prevEl: '.hero-button--prev',
     },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: false,
+      enabled: false,
+    },
+    breakpoints: {
+      0: {
+        pagination: {
+          enabled: true,
+        },
+      },
+      1024: {
+        pagination: {
+          enabled: false,
+        },
+      },
+    },
     on: {
       progress(swiper) {
         swiper.slides.forEach((slide) => {
