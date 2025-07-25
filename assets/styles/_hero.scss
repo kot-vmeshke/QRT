@@ -48,9 +48,8 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      object-position: top center;
+      object-position: bottom center;
       transition: transform 1500ms, filter 0.3s, scale 1s;
-      filter: grayscale(100%) brightness(0.5) contrast(0.9);
       scale: 1;
 
       .hero-slide:hover & {
@@ -85,7 +84,6 @@
       object-fit: cover;
       display: block;
       transition: 1.5s;
-      filter: grayscale(100%) brightness(0.5) contrast(0.9);
     }
 
     &-video {

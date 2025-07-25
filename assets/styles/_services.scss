@@ -293,7 +293,7 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s, filter 0.5s;
-      filter: grayscale(100%) brightness(0.9);
+      filter: grayscale(100%) brightness(0.7);
 
       @include md {
         filter: grayscale(0) brightness(0.9);

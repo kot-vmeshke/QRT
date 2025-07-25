@@ -5,9 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 38px;
-  padding: 54px 0 569px;
-  background: url(../img/precision_logo.svg) no-repeat center bottom,
+  gap: 36px;
+  padding: 91px 0 520px;
+  background: url(../img/precision_logo.svg) no-repeat center bottom 68px /
+      1210px auto,
     var(--gradient-bg-light);
   background-blend-mode: overlay, normal;
 

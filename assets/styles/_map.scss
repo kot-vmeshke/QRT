@@ -7,12 +7,12 @@
   justify-content: flex-start;
   gap: 45px;
   padding: 135px 0 544px;
-  background: url(../img/map.png) no-repeat center bottom,
+  background: url(../img/MAP.svg) no-repeat center bottom,
     var(--gradient-bg-light);
 
   @include md {
     padding: 53px 0 230px;
-    background: url(../img/map.png) no-repeat center bottom / contain,
+    background: url(../img/MAP.svg) no-repeat center bottom / contain,
       var(--gradient-bg-light);
   }
 

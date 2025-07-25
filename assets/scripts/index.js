@@ -232,5 +232,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initClientsSlider();
 
   handleCustomCursor();
-  handleMainSlide();
+  // handleMainSlide();
 });
