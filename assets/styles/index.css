@@ -103,6 +103,36 @@ button {
   padding: 0 var(--padding-inline);
 }
 
+.preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-dark);
+  z-index: 1000;
+}
+.preloader-wrap {
+  position: relative;
+  width: 140px;
+  height: 48px;
+}
+.preloader-wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  display: block;
+}
+.preloader-cover {
+  position: absolute;
+  inset: -2px;
+  width: 144px;
+  height: 52px;
+  background-color: var(--color-primary-dark);
+  z-index: 2;
+}
+
 .section-title {
   position: relative;
   font-weight: 800;
@@ -143,14 +173,14 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-bg-dark);
+  background-color: var(--color-accent);
   z-index: 2;
 }
 .section-title--dark .section-title-cover {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-accent);
 }
 .contacts .section-title-cover {
-  background-color: var(--color-accent);
+  background-color: var(--color-bg-light);
 }
 
 .title-dots::before, .title-dots::after {
@@ -868,7 +898,6 @@ button {
   scale: 1;
 }
 .hero-slide:hover .hero-slide-image {
-  filter: grayscale(0%) brightness(0.5);
   scale: 1.05;
 }
 .hero-slide-media {
@@ -1007,7 +1036,7 @@ button {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-primary-light);
+  background-color: var(--color-accent);
   z-index: 2;
 }
 .hero-description {
@@ -1077,6 +1106,10 @@ button {
 }
 .hero-button::before {
   right: -18px;
+}
+.hero-button.swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .precision {
@@ -1310,6 +1343,7 @@ button {
   font-weight: 500;
   font-size: 18px;
   line-height: 148%;
+  text-align: justify;
 }
 .service-text:not(:last-child) {
   margin-bottom: 28px;
@@ -1687,7 +1721,7 @@ button {
   border-radius: 4px;
   background: url(../img/noise.png), linear-gradient(244.75deg, #2f2f2f -36.13%, #505353 97.37%);
   box-shadow: inset 84px -198px 235px 0 rgba(0, 0, 0, 0.25);
-  transition: filter 0.7s;
+  transition: box-shadow 0.7s;
   overflow: hidden;
   --glow-size: 24px;
   --glow-color: rgb(247 141 30 / 80%);
@@ -1714,7 +1748,7 @@ button {
   z-index: 1;
 }
 .feature:hover {
-  filter: drop-shadow(0 0 var(--glow-size) var(--glow-color));
+  box-shadow: 0 0 var(--glow-size) var(--glow-color);
 }
 .feature:hover::before {
   left: 125%;
@@ -1864,33 +1898,20 @@ button {
   transition: filter 0.7s;
   overflow: hidden;
 }
-.project::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  left: -150%;
-  width: 100%;
-  height: 150%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
-  filter: blur(5px);
-  transition: left 1s ease;
-  z-index: 2;
-}
 .project::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent, var(--color-accent));
+  background: linear-gradient(221deg, rgba(247, 141, 30, 0.4) 0%, rgba(247, 141, 30, 0.4) 100%);
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
   z-index: 1;
 }
 .project:hover::before {
   left: 125%;
 }
 .project:hover::after {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .project-link {
   font-size: 0;
@@ -2024,8 +2045,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 110px;
-  padding: 282px 0;
+  gap: 80px;
+  padding: 146px 0 80px;
   overflow: hidden;
 }
 @media (max-width: 1200px) {
@@ -2094,11 +2115,16 @@ button {
 }
 
 .contacts {
-  padding: 152px 0 158px;
+  padding: 80px 0 146px;
   background: var(--color-accent);
 }
+.contacts-container {
+  display: flex;
+  flex-direction: column;
+}
 .contacts .section-title {
-  margin-bottom: 100px;
+  display: inline-block;
+  margin: 0 auto 60px;
 }
 .contacts .section-title span {
   color: var(--color-primary-light);

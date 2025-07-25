@@ -69,6 +69,38 @@ button {
   padding: 0 var(--padding-inline);
 }
 
+.preloader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-dark);
+  z-index: 1000;
+
+  &-wrap {
+    position: relative;
+    width: 140px;
+    height: 48px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &-cover {
+    position: absolute;
+    inset: -2px;
+    width: 144px;
+    height: 52px;
+    background-color: var(--color-primary-dark);
+    z-index: 2;
+  }
+}
+
 .section-title {
   position: relative;
   font-weight: 800;
@@ -108,15 +140,15 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-accent);
     z-index: 2;
 
     .section-title--dark & {
-      background-color: var(--color-bg-light);
+      background-color: var(--color-accent);
     }
 
     .contacts & {
-      background-color: var(--color-accent);
+      background-color: var(--color-bg-light);
     }
   }
 }

@@ -26,6 +26,51 @@ const initBurgerMenu = () => {
   navLinks.forEach((link) => link.addEventListener('click', closeMenu));
 };
 
+const coverEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+const textEase = CustomEase.create('textEase', '0.77, 0, 0.175, 1');
+
+const runSlideTl = (swiper) => {
+  const slide = swiper.slides[swiper.activeIndex];
+  if (!slide) return;
+
+  swiper._tl && swiper._tl.kill();
+
+  const tl = gsap.timeline({
+    delay: 1.45,
+    defaults: { duration: 1 },
+  });
+
+  const covers = slide.querySelectorAll('[data-image-cover]');
+  covers.forEach((el) => {
+    const xValue = (el.dataset.direction || 'right') === 'left' ? -101 : 101;
+    gsap.set(el, { xPercent: 0 });
+
+    tl.to(el, { xPercent: xValue, ease: coverEase }, 0);
+  });
+
+  const description = slide.querySelector('.hero-description');
+  if (description) {
+    tl.fromTo(
+      description,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, ease: textEase },
+      0.2
+    );
+  }
+
+  const btn = slide.querySelector('.border-btn-box');
+  if (btn) {
+    tl.fromTo(
+      btn,
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, ease: textEase },
+      0.4
+    );
+  }
+
+  swiper._tl = tl;
+};
+
 const initHeroSlider = () => {
   const heroSlider = document.querySelector('.hero');
   if (!heroSlider) return;
@@ -64,46 +109,7 @@ const initHeroSlider = () => {
         });
       },
       slideChangeTransitionStart() {
-        const active = swiper.slides[swiper.activeIndex];
-
-        const animateEl = (selector, y = 120, delay = 0.75) => {
-          const el = active.querySelector(selector);
-          if (el) {
-            gsap.fromTo(
-              el,
-              { opacity: 0, y },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 1.5,
-                ease: 'power2.out',
-                delay,
-              }
-            );
-          }
-        };
-
-        const cover = active.querySelectorAll('[data-image-cover]');
-        if (cover.length) {
-          cover.forEach((el) => {
-            const direction = el.dataset.direction || 'right';
-            const xValue = direction === 'left' ? -101 : 101;
-
-            gsap.set(el, { xPercent: 0 });
-
-            gsap.to(el, {
-              xPercent: xValue,
-              duration: 1,
-              ease: 'power2.out',
-              delay: 1.25,
-            });
-          });
-        }
-
-        animateEl('.hero-title');
-        animateEl('.hero-slide-text-wrap img');
-        animateEl('.hero-description', 100, 1.75);
-        animateEl('.border-btn-box', 0, 2.25);
+        runSlideTl(this);
       },
     },
   });

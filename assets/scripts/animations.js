@@ -2,14 +2,34 @@
 // GSAP & ScrollTrigger Setup
 // ============================
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(CustomEase);
 
 // ============================
 // Hero Slide Intro Timeline
 // ============================
 const heroTimeline = gsap.timeline();
 
+const preloaderEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+
 document.addEventListener('DOMContentLoaded', () => {
   heroTimeline
+    .to('.preloader-cover', {
+      xPercent: 101,
+      duration: 1.5,
+      ease: 'linear',
+    })
+    .to(
+      '.preloader',
+      {
+        xPercent: 101,
+        duration: 1,
+        ease: preloaderEase,
+        onComplete: () => {
+          document.querySelector('.preloader').style.display = 'none';
+        },
+      },
+      '+=0.2'
+    )
     .fromTo(
       '.hero-slide-text-wrap img',
       { opacity: 0, y: 120 },
@@ -19,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1.5,
         ease: 'power2.out',
       },
-      '+=0.5'
+      '-=0.5'
     )
     .fromTo(
       '.hero-slide--main .hero-description',

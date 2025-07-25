@@ -58,7 +58,7 @@
     linear-gradient(244.75deg, #2f2f2f -36.13%, #505353 97.37%);
   box-shadow: inset 84px -198px 235px 0 rgba(0, 0, 0, 0.25);
 
-  transition: filter 0.7s;
+  transition: box-shadow 0.7s;
   overflow: hidden;
 
   --glow-size: 24px;
@@ -92,7 +92,7 @@
   }
 
   &:hover {
-    filter: drop-shadow(0 0 var(--glow-size) var(--glow-color));
+    box-shadow: 0 0 var(--glow-size) var(--glow-color);
 
     &::before {
       left: 125%;
