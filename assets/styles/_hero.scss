@@ -100,14 +100,7 @@
     &-text-wrap {
       position: relative;
       top: 50svh;
-      transform: translate(0, -39%);
-
-      img {
-        @include xl {
-          width: 1920px;
-          height: auto;
-        }
-      }
+      transform: translate(0, -34%);
     }
 
     &--main {
@@ -124,6 +117,38 @@
       z-index: 3;
       flex-shrink: 0;
     }
+  }
+
+  &-energising-wrap {
+    width: 1440px;
+    height: 74px;
+    position: relative;
+
+    .left {
+      position: absolute;
+      top: 50%;
+      right: calc(50% + 245px);
+      transform: translate(0, -50%);
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .right {
+      position: absolute;
+      top: 50%;
+      left: calc(50% + 245px);
+      transform: translate(0, -50%);
+    }
+  }
+
+  &-future {
+    display: block;
+    margin: 24px auto 34px;
   }
 
   &-title {
@@ -218,10 +243,8 @@
     .hero-slide--main & {
       font-weight: 500;
       font-size: 22px;
-      margin-top: -110px;
 
       @include xl {
-        margin-top: -146px;
         font-size: 28px;
       }
     }

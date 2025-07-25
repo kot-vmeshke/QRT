@@ -9,7 +9,7 @@ gsap.registerPlugin(CustomEase);
 // ============================
 const heroTimeline = gsap.timeline();
 
-const preloaderEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+const heroEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
 
 document.addEventListener('DOMContentLoaded', () => {
   heroTimeline
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         xPercent: 101,
         duration: 1,
-        ease: preloaderEase,
+        ease: heroEase,
         onComplete: () => {
           document.querySelector('.preloader').style.display = 'none';
         },
@@ -31,19 +31,58 @@ document.addEventListener('DOMContentLoaded', () => {
       '+=0.2'
     )
     .fromTo(
-      '.hero-slide-text-wrap img',
+      '.hero-energising-wrap',
       { opacity: 0, y: 120 },
       {
         opacity: 1,
         y: 0,
         duration: 1.5,
-        ease: 'power2.out',
+        ease: heroEase,
       },
       '-=0.5'
     )
     .fromTo(
+      '.left',
+      { scaleX: 0, x: 0 },
+      {
+        scaleX: 1,
+        x: -25,
+        duration: 2,
+        ease: heroEase,
+        transformOrigin: 'right center',
+      },
+      '-=1'
+    )
+    .fromTo(
+      '.right',
+      { scaleX: 0 },
+      {
+        scaleX: 1,
+        duration: 2,
+        ease: heroEase,
+        transformOrigin: 'left center',
+      },
+      '<'
+    )
+    .fromTo(
+      '.hero-slide-media',
+      { scale: 1.2 },
+      {
+        scale: 1,
+        duration: 0.5,
+        ease: 'linear',
+      },
+      '-=1'
+    )
+    .fromTo(
+      '.hero-future',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 1, ease: heroEase },
+      '-=1'
+    )
+    .fromTo(
       '.hero-slide--main .hero-description',
-      { opacity: 0, y: 100 },
+      { opacity: 0, y: 30 },
       {
         opacity: 1,
         y: 0,
