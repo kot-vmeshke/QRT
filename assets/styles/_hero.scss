@@ -111,6 +111,12 @@
       top: 50svh;
       transform: translate(0, -34%);
 
+      [data-animation] & {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       @include md {
         top: auto;
         transform: none;
@@ -208,6 +214,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      overflow: hidden;
     }
 
     .right {
@@ -223,8 +230,14 @@
   }
 
   &-future {
+    position: relative;
     display: block;
     margin: 24px auto 34px;
+    overflow: hidden;
+
+    .hero-title-cover {
+      background: var(--color-primary-light);
+    }
 
     @include md {
       display: none;

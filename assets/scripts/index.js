@@ -44,10 +44,19 @@ const runSlideTl = (swiper) => {
 
   switch (animationType) {
     case 'old':
-      animateOld(slide, tl);
+      animateOld(slide);
       break;
     case 'between':
       animateBetween(slide, tl);
+      break;
+    case 'main-one':
+      animateMainOne(slide, tl);
+      break;
+    case 'main-two':
+      animateMainTwo(slide, tl);
+      break;
+    case 'main-main':
+      animateMainMain(slide, tl);
       break;
     default:
       animateNew(slide, tl);
@@ -84,7 +93,7 @@ const runSlideTl = (swiper) => {
     }
   }
 
-  function animateOld(slide, tl) {
+  function animateOld(slide) {
     const animateEl = (selector, y = 120, delay = 0.75) => {
       const el = slide.querySelector(selector);
       if (el) {
@@ -163,6 +172,191 @@ const runSlideTl = (swiper) => {
     }
   }
 
+  function animateMainOne(slide, tl) {
+    const heroEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+
+    const covers = slide.querySelectorAll('[data-image-cover]');
+    gsap.set(covers, { xPercent: 0 });
+
+    tl.to(covers, { xPercent: 101, ease: coverEase, duration: 1.5 })
+      .fromTo(
+        slide.querySelector('.left'),
+        { scaleX: 0, x: 0 },
+        {
+          scaleX: 1,
+          x: -25,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'right center',
+        },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.right'),
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'left center',
+        },
+        '<'
+      )
+      .fromTo(
+        slide.querySelector('.hero-slide-media'),
+        { scale: 1.2 },
+        { scale: 1, duration: 0.5, ease: 'linear' },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.hero-description'),
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1 },
+        '-=0.5'
+      )
+      .fromTo(
+        slide.querySelector('.border-btn-box'),
+        { opacity: 0 },
+        { opacity: 1, duration: 1 },
+        '-=0.5'
+      );
+  }
+
+  function animateMainTwo(slide, tl) {
+    const heroEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+
+    const coversAccent = slide.querySelectorAll(
+      '.accent-color [data-image-cover]'
+    );
+    const coversLight = slide.querySelectorAll(
+      '.light-color [data-image-cover]'
+    );
+
+    gsap.set([...coversAccent, ...coversLight], { xPercent: 0 });
+
+    tl.to(coversAccent, { xPercent: 101, ease: coverEase, duration: 1 })
+      .to(coversLight, { xPercent: 101, ease: coverEase, duration: 1 })
+      .fromTo(
+        slide.querySelector('.left'),
+        { scaleX: 0, x: 0 },
+        {
+          scaleX: 1,
+          x: -25,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'right center',
+        },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.right'),
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'left center',
+        },
+        '<'
+      )
+      .fromTo(
+        slide.querySelector('.hero-description'),
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.5, ease: textEase },
+        '-=0.5'
+      )
+      .fromTo(
+        slide.querySelector('.border-btn-box'),
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.5, ease: textEase },
+        '-=0.5'
+      );
+  }
+
+  function animateMainMain(slide, tl) {
+    const heroEase = CustomEase.create('coverEase', '0.86, 0, 0.07, 1');
+
+    tl.fromTo(
+      slide.querySelector('.hero-energising-wrap'),
+      { opacity: 0, y: 120 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: heroEase,
+      },
+      '-=0.5'
+    )
+      .fromTo(
+        slide.querySelector('.hero-slide--main [data-image-cover]'),
+        { xPercent: 0 },
+        {
+          xPercent: 101,
+          ease: coverEase,
+          duration: 1.5,
+        },
+        '<'
+      )
+      .fromTo(
+        slide.querySelector('.left'),
+        { scaleX: 0, x: 0 },
+        {
+          scaleX: 1,
+          x: -25,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'right center',
+        },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.right'),
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 2,
+          ease: heroEase,
+          transformOrigin: 'left center',
+        },
+        '<'
+      )
+      .fromTo(
+        slide.querySelector('.hero-slide-media'),
+        { scale: 1.2 },
+        {
+          scale: 1,
+          duration: 0.5,
+          ease: 'linear',
+        },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.hero-future'),
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 1, ease: heroEase },
+        '-=1'
+      )
+      .fromTo(
+        slide.querySelector('.hero-slide--main .hero-description'),
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+        },
+        '-=0.5'
+      )
+      .fromTo(
+        slide.querySelector('.hero-slide--main .border-btn-box'),
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1,
+        },
+        '-=0.5'
+      );
+  }
+
   swiper._tl = tl;
 };
 
@@ -228,7 +422,11 @@ const initHeroSlider = () => {
   });
 
   swiper.on('slideChange', () => {
-    heroSlider.classList.toggle('not-first-slide', swiper.realIndex !== 0);
+    if (swiper.realIndex > 2) {
+      heroSlider.classList.add('not-first-slide');
+    } else {
+      heroSlider.classList.remove('not-first-slide');
+    }
   });
 };
 
