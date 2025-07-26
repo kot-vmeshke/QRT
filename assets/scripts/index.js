@@ -551,10 +551,8 @@ const initProjectsSlider = (selector, reverse = false) => {
 document.addEventListener('DOMContentLoaded', () => {
   initBurgerMenu();
   initHeroSlider();
-  initClientsSlider();
 
   handleCustomCursor();
-  // handleMainSlide();
 
   initProjectsSlider('.swiper--left');
   initProjectsSlider('.swiper--right', true);
