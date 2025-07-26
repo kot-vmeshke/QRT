@@ -69,16 +69,17 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
-    text-transform: lowercase;
+    text-transform: uppercase;
 
     a {
       color: var(--color-primary-light);
       transition: color 0.3s;
 
       span {
+        margin-bottom: 8px;
+        font-size: 24px;
         display: block;
         font-weight: 600;
-        text-transform: uppercase;
         color: var(--color-accent);
 
         @include sm {
@@ -216,7 +217,7 @@
   &-socials {
     grid-area: socials;
     justify-self: end;
-
+    align-self: end;
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 
