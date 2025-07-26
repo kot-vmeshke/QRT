@@ -871,6 +871,8 @@ button {
   height: 100svh;
   padding-bottom: 8.7vh;
   overflow-x: hidden;
+  background: linear-gradient(180deg, transparent 70%, #171919 90%, #171919 100%);
+  z-index: 1;
 }
 @media (max-width: 1024px) {
   .hero-slide-inner {
@@ -878,7 +880,6 @@ button {
     padding-bottom: 140px;
     row-gap: 16px;
     background: linear-gradient(180deg, transparent 40%, #171919 60%, #171919 100%);
-    z-index: 1;
   }
 }
 @media (min-width: 1921px) {
@@ -894,8 +895,8 @@ button {
   width: 100%;
   height: 100%;
   z-index: 0;
-  -o-object-position: bottom center;
-     object-position: bottom center;
+  -o-object-position: top center;
+     object-position: top center;
   transition: transform 1500ms, filter 0.3s, scale 1s;
   scale: 1;
 }
@@ -1646,13 +1647,13 @@ button {
   align-items: center;
   justify-content: flex-start;
   gap: 45px;
-  padding: 135px 0 544px;
-  background: url(../img/MAP.svg) no-repeat center bottom, var(--gradient-bg-light);
+  padding: 135px 0 584px;
+  background: url(../img/MAP.svg) no-repeat center bottom 48px/contain, var(--gradient-bg-light);
 }
 @media (max-width: 1024px) {
   .map {
-    padding: 53px 0 230px;
-    background: url(../img/MAP.svg) no-repeat center bottom/contain, var(--gradient-bg-light);
+    padding: 53px 0 260px;
+    background: url(../img/MAP.svg) no-repeat center bottom 24px/contain, var(--gradient-bg-light);
   }
 }
 .map-description {

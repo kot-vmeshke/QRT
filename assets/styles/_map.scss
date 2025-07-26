@@ -6,13 +6,13 @@
   align-items: center;
   justify-content: flex-start;
   gap: 45px;
-  padding: 135px 0 544px;
-  background: url(../img/MAP.svg) no-repeat center bottom,
+  padding: 135px 0 584px;
+  background: url(../img/MAP.svg) no-repeat center bottom 48px / contain,
     var(--gradient-bg-light);
 
   @include md {
-    padding: 53px 0 230px;
-    background: url(../img/MAP.svg) no-repeat center bottom / contain,
+    padding: 53px 0 260px;
+    background: url(../img/MAP.svg) no-repeat center bottom 24px / contain,
       var(--gradient-bg-light);
   }
 

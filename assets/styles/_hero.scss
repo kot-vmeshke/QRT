@@ -23,6 +23,13 @@
       height: 100svh;
       padding-bottom: 8.7vh;
       overflow-x: hidden;
+      background: linear-gradient(
+        180deg,
+        transparent 70%,
+        #171919 90%,
+        #171919 100%
+      );
+      z-index: 1;
 
       @include md {
         min-height: 520px;
@@ -34,7 +41,6 @@
           #171919 60%,
           #171919 100%
         );
-        z-index: 1;
       }
 
       @include xl {
@@ -49,7 +55,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      object-position: bottom center;
+      object-position: top center;
       transition: transform 1500ms, filter 0.3s, scale 1s;
       scale: 1;
 

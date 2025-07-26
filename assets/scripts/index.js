@@ -40,32 +40,127 @@ const runSlideTl = (swiper) => {
     defaults: { duration: 1 },
   });
 
-  const covers = slide.querySelectorAll('[data-image-cover]');
-  covers.forEach((el) => {
-    const xValue = (el.dataset.direction || 'right') === 'left' ? -101 : 101;
-    gsap.set(el, { xPercent: 0 });
+  const animationType = slide.dataset.animation || 'new';
 
-    tl.to(el, { xPercent: xValue, ease: coverEase }, 0);
-  });
-
-  const description = slide.querySelector('.hero-description');
-  if (description) {
-    tl.fromTo(
-      description,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, ease: textEase },
-      0.2
-    );
+  switch (animationType) {
+    case 'old':
+      animateOld(slide, tl);
+      break;
+    case 'between':
+      animateBetween(slide, tl);
+      break;
+    default:
+      animateNew(slide, tl);
+      break;
   }
 
-  const btn = slide.querySelector('.border-btn-box');
-  if (btn) {
-    tl.fromTo(
-      btn,
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, ease: textEase },
-      0.4
-    );
+  function animateNew(slide, tl) {
+    const covers = slide.querySelectorAll('[data-image-cover]');
+    covers.forEach((el) => {
+      const xValue = (el.dataset.direction || 'right') === 'left' ? -101 : 101;
+      gsap.set(el, { xPercent: 0 });
+
+      tl.to(el, { xPercent: xValue, ease: coverEase }, 0);
+    });
+
+    const description = slide.querySelector('.hero-description');
+    if (description) {
+      tl.fromTo(
+        description,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, ease: textEase },
+        0.2
+      );
+    }
+
+    const btn = slide.querySelector('.border-btn-box');
+    if (btn) {
+      tl.fromTo(
+        btn,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, ease: textEase },
+        0.4
+      );
+    }
+  }
+
+  function animateOld(slide, tl) {
+    const animateEl = (selector, y = 120, delay = 0.75) => {
+      const el = slide.querySelector(selector);
+      if (el) {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: 'power2.out',
+            delay,
+          }
+        );
+      }
+    };
+
+    const cover = slide.querySelectorAll('[data-image-cover]');
+    if (cover.length) {
+      cover.forEach((el) => {
+        const direction = el.dataset.direction || 'right';
+        const xValue = direction === 'left' ? -101 : 101;
+
+        gsap.set(el, { xPercent: 0 });
+
+        gsap.to(el, {
+          xPercent: xValue,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 1.25,
+        });
+      });
+    }
+
+    animateEl('.hero-title');
+    animateEl('.hero-description', 100, 1.75);
+    animateEl('.border-btn-box', 0, 2.25);
+  }
+
+  function animateBetween(slide, tl) {
+    const covers = slide.querySelectorAll('[data-image-cover]');
+    covers.forEach((el) => {
+      const xValue = (el.dataset.direction || 'right') === 'left' ? -101 : 101;
+      gsap.set(el, { xPercent: 0 });
+      tl.to(el, { xPercent: xValue, ease: coverEase, duration: 1 }, 0);
+    });
+
+    const description = slide.querySelector('.hero-description');
+    if (description) {
+      tl.fromTo(
+        description,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power2.out',
+        },
+        1
+      );
+    }
+
+    const btn = slide.querySelector('.border-btn-box');
+    if (btn) {
+      tl.fromTo(
+        btn,
+        { opacity: 0, y: 0 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: 'power2.out',
+        },
+        1.5
+      );
+    }
   }
 
   swiper._tl = tl;
