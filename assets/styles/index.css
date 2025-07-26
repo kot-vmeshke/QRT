@@ -2051,178 +2051,67 @@ button {
     font-size: 32px;
   }
 }
-.projects-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+.projects .swiper {
   width: 100%;
-  padding: 0 var(--padding-inline);
 }
-@media (max-width: 1200px) {
-  .projects-wrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.projects-list {
+  list-style: none;
+  width: 100%;
 }
-@media (max-width: 576px) {
-  .projects-wrapper {
-    grid-template-columns: 1fr;
-  }
+.projects .swiper-wrapper {
+  transition-timing-function: linear !important;
 }
 
 .project {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 11px;
-  width: 100%;
-  aspect-ratio: 1;
-  padding: 32px 30px;
+  aspect-ratio: 534/370;
   border-radius: 4px;
-  transition: filter 0.7s;
   overflow: hidden;
+  transition: filter 0.5s;
 }
-.project::after {
+.project::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(221deg, rgba(247, 141, 30, 0.4) 0%, rgba(247, 141, 30, 0.4) 100%);
+  background: linear-gradient(136.99deg, #f78d1e 24.32%, rgba(255, 255, 255, 0) 215.32%);
+  mix-blend-mode: overlay;
   opacity: 0;
-  transition: opacity 0.5s;
-  z-index: 1;
+  z-index: 2;
 }
-.project:hover::before {
-  left: 125%;
+.project.main-slide::before {
+  opacity: 1;
 }
-.project:hover::after {
-  opacity: 0.5;
+.project:hover img {
+  filter: none;
+  transform: scale(1.2);
 }
-.project-link {
-  font-size: 0;
+.project img {
   position: absolute;
   inset: 0;
-  display: none;
-}
-.project-img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 100%;
-  background: var(--color-primary-dark);
-  filter: grayscale(1);
-  transition: filter 0.4s;
-}
-.project-img::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 50%);
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.project-img-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-primary-dark);
-  z-index: 4;
-}
-.project-img img {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transform-origin: center;
+  transition: all 0.5s;
+  filter: grayscale(100%) brightness(0.8);
+  z-index: 1;
 }
-.project:hover .project-img {
-  filter: grayscale(0);
-}
-.project:hover .project-img::after {
-  opacity: 1;
-}
-@media (max-width: 1200px) {
-  .project-img {
-    filter: grayscale(0);
-  }
-  .project-img::after {
-    opacity: 1;
-  }
-}
-.project-name {
-  position: relative;
+.project .project-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: 700;
-  font-size: 52px;
+  font-size: 46px;
   line-height: 99%;
+  text-align: center;
   text-transform: uppercase;
-  color: var(--color-primary-light);
-  opacity: 0;
-  top: 10px;
-  transition: opacity 0s, top 0s;
-  transition-delay: 0s;
+  text-shadow: 0px 4px 33.4px rgba(0, 0, 0, 0.5098039216);
   z-index: 3;
-}
-.project:hover .project-name {
-  opacity: 1;
-  top: 0;
-  transition: opacity 0.7s, top 0.5s;
-  transition-delay: 0.4s;
-}
-@media (max-width: 1200px) {
-  .project-name {
-    opacity: 1;
-    top: 0;
-    font-size: 38px;
-  }
-}
-@media (max-width: 1024px) {
-  .project-name {
-    font-size: 22px;
-  }
-}
-@media (min-width: 1921px) {
-  .project-name {
-    font-size: 64px;
-  }
-}
-.project-description {
-  position: relative;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 99%;
-  color: var(--color-accent);
-  opacity: 0;
-  top: 10px;
-  transition: opacity 0s, top 0s;
-  transition-delay: 0s;
-  z-index: 3;
-}
-.project:hover .project-description {
-  opacity: 1;
-  top: 0;
-  transition: opacity 0.7s, top 0.5s;
-  transition-delay: 0.6s;
-}
-@media (max-width: 1200px) {
-  .project-description {
-    opacity: 1;
-    top: 0;
-    font-size: 18px;
-  }
-}
-@media (max-width: 1024px) {
-  .project-description {
-    font-size: 14px;
-  }
-}
-@media (min-width: 1921px) {
-  .project-description {
-    font-size: 26px;
-  }
 }
 
 .clients {

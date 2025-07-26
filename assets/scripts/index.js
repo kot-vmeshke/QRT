@@ -520,6 +520,20 @@ const handleMainSlide = () => {
   });
 };
 
+const initProjectsSlider = (selector, reverse = false) => {
+  const swiper = new Swiper(selector, {
+    slidesPerView: 3,
+    speed: 12000,
+    spaceBetween: 22,
+    loop: true,
+    autoplay: {
+      delay: 0,
+      reverseDirection: reverse,
+      pauseOnMouseEnter: true,
+    },
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initBurgerMenu();
   initHeroSlider();
@@ -527,4 +541,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   handleCustomCursor();
   // handleMainSlide();
+
+  initProjectsSlider('.swiper--left');
+  initProjectsSlider('.swiper--right', true);
+  initProjectsSlider('.swiper--left-2');
 });
