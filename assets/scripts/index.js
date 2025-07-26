@@ -531,6 +531,20 @@ const initProjectsSlider = (selector, reverse = false) => {
       reverseDirection: reverse,
       pauseOnMouseEnter: true,
     },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      1200: {
+        slidesPerView: 3,
+      },
+      1920: {
+        slidesPerView: 4,
+      },
+    },
   });
 };
 
