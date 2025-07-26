@@ -100,18 +100,6 @@
       }
     }
 
-    &-bottom {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 44px;
-
-      @include xl {
-        gap: 56px;
-      }
-    }
-
     &-text-wrap {
       position: relative;
       top: 50svh;
@@ -150,6 +138,50 @@
       position: relative;
       z-index: 3;
       flex-shrink: 0;
+    }
+  }
+
+  &-licence-img {
+    position: absolute;
+    top: 34px;
+    display: block;
+
+    &--left {
+      right: calc(50% + 25px);
+
+      @include md {
+        right: calc(50% + 182px);
+      }
+
+      @include sm {
+        width: 52px;
+        height: auto;
+        right: calc(50% + 8px);
+      }
+    }
+
+    &--right {
+      left: calc(50% + 8px);
+
+      @include md {
+        left: calc(50% + 182px);
+      }
+
+      @include sm {
+        width: 61px;
+        height: auto;
+        left: calc(50% + 8px);
+      }
+    }
+
+    @include md {
+      top: auto;
+      bottom: 140px;
+    }
+
+    @include sm {
+      bottom: auto;
+      top: 24vh;
     }
   }
 
