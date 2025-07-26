@@ -1161,6 +1161,19 @@ button {
   background-color: var(--color-accent);
   z-index: 2;
 }
+@media (max-width: 1024px) {
+  .hero-title-cover--desktop {
+    display: none;
+  }
+}
+.hero-title-cover--mobile {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .hero-title-cover--mobile {
+    display: block;
+  }
+}
 .hero-description {
   position: relative;
   margin-bottom: 7px;

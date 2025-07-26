@@ -321,6 +321,18 @@
       height: 100%;
       background-color: var(--color-accent);
       z-index: 2;
+
+      &--desktop {
+        @include md {
+          display: none;
+        }
+      }
+      &--mobile {
+        display: none;
+        @include md {
+          display: block;
+        }
+      }
     }
   }
 
