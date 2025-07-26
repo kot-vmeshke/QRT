@@ -14,13 +14,7 @@
   --color-accent: #f78d1e;
   --color-bg-dark: #282928;
   --color-bg-light: #e7e9e8;
-  --gradient-bg-light: linear-gradient(
-      to bottom,
-      #e7e9e8 1.23%,
-      #e7e9e8 10%,
-      transparent
-    ),
-    url(../img/noise.png),
+  --gradient-bg-light: url(../img/noise.png),
     linear-gradient(128.58deg, #e7e9e8 1.23%, #9a9da2 128.79%);
   --font-family: 'Barlow', Arial, Helvetica, system-ui, sans-serif;
 
@@ -302,6 +296,11 @@ button {
   width: 100%;
   max-width: 316px;
   padding: 14px;
+
+  @include sm {
+    max-width: 252px;
+    padding: 10px;
+  }
 }
 
 .border-btn-inner {
@@ -379,19 +378,9 @@ button {
   &:hover {
     color: var(--color-accent);
   }
-}
 
-@media only screen and (max-width: 767px) {
-  .border-btn {
-    line-height: 55px;
-    padding: 0 55px;
-  }
-}
-
-@media only screen and (max-width: 549px) {
-  .border-btn {
-    line-height: 50px;
-    padding: 0 50px;
+  @include sm {
+    font-size: 14px;
   }
 }
 

@@ -25,6 +25,7 @@
       overflow-x: hidden;
 
       @include md {
+        min-height: 520px;
         padding-bottom: 140px;
         row-gap: 16px;
         background: linear-gradient(
@@ -115,13 +116,32 @@
       position: relative;
       top: 50svh;
       transform: translate(0, -34%);
+
+      @include md {
+        top: auto;
+        transform: none;
+      }
     }
 
     &--main {
       justify-content: flex-start;
+
+      @include md {
+        .hero-slide-inner {
+          justify-content: center;
+          align-items: center;
+          padding: 0 var(--padding-inline);
+        }
+      }
+
       .border-btn-box {
         align-self: flex-start;
         margin: auto 0 0 8.5vw;
+
+        @include md {
+          align-self: center;
+          margin: 0;
+        }
       }
     }
 
@@ -158,11 +178,19 @@
       left: calc(50% + 245px);
       transform: translate(0, -50%);
     }
+
+    @include md {
+      display: none;
+    }
   }
 
   &-future {
     display: block;
     margin: 24px auto 34px;
+
+    @include md {
+      display: none;
+    }
   }
 
   &-title {
@@ -184,6 +212,11 @@
 
     .hero-slide--main & {
       font-size: 0px;
+
+      @include md {
+        font-size: clamp(3rem, 1.6277rem + 5.8552vw, 5.375rem);
+        margin-bottom: 22px;
+      }
     }
 
     span {
@@ -272,6 +305,7 @@
     @include md {
       color: #9a9da2;
       margin-bottom: 38px;
+      font-size: 16px;
     }
 
     @include xl {
@@ -282,6 +316,12 @@
     .hero-slide--main & {
       font-weight: 500;
       font-size: 22px;
+
+      @include md {
+        font-size: 16px;
+        line-height: normal;
+        margin-bottom: 10px;
+      }
 
       @include xl {
         font-size: 28px;

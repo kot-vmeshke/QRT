@@ -42,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
       '-=0.5'
     )
     .fromTo(
+      '.hero-slide--main [data-image-cover]',
+      { xPercent: 0 },
+      {
+        xPercent: 101,
+        ease: coverEase,
+        duration: 1.5,
+      },
+      '<'
+    )
+    .fromTo(
       '.left',
       { scaleX: 0, x: 0 },
       {

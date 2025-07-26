@@ -47,13 +47,7 @@
   --color-accent: #f78d1e;
   --color-bg-dark: #282928;
   --color-bg-light: #e7e9e8;
-  --gradient-bg-light: linear-gradient(
-      to bottom,
-      #e7e9e8 1.23%,
-      #e7e9e8 10%,
-      transparent
-    ),
-    url(../img/noise.png),
+  --gradient-bg-light: url(../img/noise.png),
     linear-gradient(128.58deg, #e7e9e8 1.23%, #9a9da2 128.79%);
   --font-family: "Barlow", Arial, Helvetica, system-ui, sans-serif;
   --padding-inline: 8.5vw;
@@ -325,6 +319,12 @@ button {
   max-width: 316px;
   padding: 14px;
 }
+@media (max-width: 768px) {
+  .border-btn-box {
+    max-width: 252px;
+    padding: 10px;
+  }
+}
 
 .border-btn-inner {
   overflow: hidden;
@@ -401,19 +401,12 @@ button {
 .border-btn:hover {
   color: var(--color-accent);
 }
+@media (max-width: 768px) {
+  .border-btn {
+    font-size: 14px;
+  }
+}
 
-@media only screen and (max-width: 767px) {
-  .border-btn {
-    line-height: 55px;
-    padding: 0 55px;
-  }
-}
-@media only screen and (max-width: 549px) {
-  .border-btn {
-    line-height: 50px;
-    padding: 0 50px;
-  }
-}
 .custom-cursor {
   position: fixed;
   top: 50%;
@@ -881,6 +874,7 @@ button {
 }
 @media (max-width: 1024px) {
   .hero-slide-inner {
+    min-height: 520px;
     padding-bottom: 140px;
     row-gap: 16px;
     background: linear-gradient(180deg, transparent 40%, #171919 60%, #171919 100%);
@@ -966,12 +960,31 @@ button {
   top: 50svh;
   transform: translate(0, -34%);
 }
+@media (max-width: 1024px) {
+  .hero-slide-text-wrap {
+    top: auto;
+    transform: none;
+  }
+}
 .hero-slide--main {
   justify-content: flex-start;
+}
+@media (max-width: 1024px) {
+  .hero-slide--main .hero-slide-inner {
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--padding-inline);
+  }
 }
 .hero-slide--main .border-btn-box {
   align-self: flex-start;
   margin: auto 0 0 8.5vw;
+}
+@media (max-width: 1024px) {
+  .hero-slide--main .border-btn-box {
+    align-self: center;
+    margin: 0;
+  }
 }
 .hero-slide .button,
 .hero-slide .border-btn-box {
@@ -1002,9 +1015,19 @@ button {
   left: calc(50% + 245px);
   transform: translate(0, -50%);
 }
+@media (max-width: 1024px) {
+  .hero-energising-wrap {
+    display: none;
+  }
+}
 .hero-future {
   display: block;
   margin: 24px auto 34px;
+}
+@media (max-width: 1024px) {
+  .hero-future {
+    display: none;
+  }
 }
 .hero-title {
   position: relative;
@@ -1027,6 +1050,12 @@ button {
 }
 .hero-slide--main .hero-title {
   font-size: 0px;
+}
+@media (max-width: 1024px) {
+  .hero-slide--main .hero-title {
+    font-size: clamp(3rem, 1.6277rem + 5.8552vw, 5.375rem);
+    margin-bottom: 22px;
+  }
 }
 .hero-title span {
   position: relative;
@@ -1111,6 +1140,7 @@ button {
   .hero-description {
     color: #9a9da2;
     margin-bottom: 38px;
+    font-size: 16px;
   }
 }
 @media (min-width: 1921px) {
@@ -1122,6 +1152,13 @@ button {
 .hero-slide--main .hero-description {
   font-weight: 500;
   font-size: 22px;
+}
+@media (max-width: 1024px) {
+  .hero-slide--main .hero-description {
+    font-size: 16px;
+    line-height: normal;
+    margin-bottom: 10px;
+  }
 }
 @media (min-width: 1921px) {
   .hero-slide--main .hero-description {
@@ -1211,13 +1248,13 @@ button {
 @media (max-width: 1200px) {
   .precision {
     padding: 54px 0 440px;
-    background: url(../img/precision_logo.svg) no-repeat center bottom/1024px auto, var(--gradient-bg-light);
+    background: url(../img/precision_logo.svg) no-repeat center bottom 48px/1024px auto, var(--gradient-bg-light);
   }
 }
 @media (max-width: 1024px) {
   .precision {
     padding: 36px 0 200px;
-    background: url(../img/precision_logo.svg) no-repeat center bottom/376px auto, var(--gradient-bg-light);
+    background: url(../img/precision_logo.svg) no-repeat center bottom 38px/376px auto, var(--gradient-bg-light);
   }
 }
 .precision-text {

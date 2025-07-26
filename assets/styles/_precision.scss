@@ -14,15 +14,15 @@
 
   @include lt {
     padding: 54px 0 440px;
-    background: url(../img/precision_logo.svg) no-repeat center bottom / 1024px
-        auto,
+    background: url(../img/precision_logo.svg) no-repeat center bottom 48px /
+        1024px auto,
       var(--gradient-bg-light);
   }
 
   @include md {
     padding: 36px 0 200px;
-    background: url(../img/precision_logo.svg) no-repeat center bottom / 376px
-        auto,
+    background: url(../img/precision_logo.svg) no-repeat center bottom 38px /
+        376px auto,
       var(--gradient-bg-light);
   }
 

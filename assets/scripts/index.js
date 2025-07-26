@@ -114,7 +114,8 @@ const initHeroSlider = () => {
       },
       touchStart(swiper) {
         swiper.slides.forEach((slide) => {
-          slide.querySelector('.hero-slide-image').style.transition = '';
+          const img = slide.querySelector('.hero-slide-image');
+          if (img) img.style.transition = '';
         });
       },
       setTransition(speed) {
@@ -125,7 +126,7 @@ const initHeroSlider = () => {
           ).style.transition = `${speed}ms`;
         });
       },
-      slideChangeTransitionStart() {
+      slideChange() {
         runSlideTl(this);
       },
     },
