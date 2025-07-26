@@ -649,12 +649,16 @@ button {
   color: var(--color-primary-light);
   transition: color 0.3s;
 }
+.footer-location-wrap a svg {
+  display: inline-block;
+  margin-right: 8px;
+}
 .footer-location-wrap a span {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   font-size: 24px;
   display: block;
-  font-weight: 600;
-  color: var(--color-accent);
+  font-weight: 700;
+  color: var(--color-primary-light);
 }
 @media (max-width: 768px) {
   .footer-location-wrap a span {
@@ -790,6 +794,7 @@ button {
   }
 }
 .footer-socials {
+  min-width: 200px;
   grid-area: socials;
   justify-self: end;
   align-self: end;
