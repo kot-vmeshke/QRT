@@ -548,6 +548,23 @@ const initProjectsSlider = (selector, reverse = false) => {
   });
 };
 
+const handleLightbox = () => {
+  const overlay = document.getElementById('lightbox-overlay');
+  const overlayImg = document.getElementById('lightbox-image');
+
+  document.querySelectorAll('[data-lightbox-trigger]').forEach((img) => {
+    img.addEventListener('click', () => {
+      overlayImg.src = img.querySelector('img').src;
+      overlay.style.display = 'flex';
+    });
+  });
+
+  overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    overlayImg.src = '';
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   initBurgerMenu();
   initHeroSlider();
@@ -557,4 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectsSlider('.swiper--left');
   initProjectsSlider('.swiper--right', true);
   initProjectsSlider('.swiper--left-2');
+
+  handleLightbox();
 });
